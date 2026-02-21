@@ -120,6 +120,7 @@ function initApp() {
     { id: 'run_200', name: 'Run 200m', category: 'cardio', unit: 'meters', defaultReps: 200 },
     { id: 'run_400', name: 'Run 400m', category: 'cardio', unit: 'meters', defaultReps: 400 },
     { id: 'run_800', name: 'Run 800m', category: 'cardio', unit: 'meters', defaultReps: 800 },
+    { id: 'run_1000', name: 'Run 1000m', category: 'cardio', unit: 'meters', defaultReps: 1000 },
     { id: 'run_1600', name: 'Run 1600m (1 mile)', category: 'cardio', unit: 'meters', defaultReps: 1600 },
     { id: 'row_cal', name: 'Row (cal)', category: 'cardio', unit: 'calories', defaultReps: 15 },
     { id: 'row_500', name: 'Row 500m', category: 'cardio', unit: 'meters', defaultReps: 500 },
