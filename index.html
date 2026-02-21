@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StreetWOD — Comunidad CrossFit · Duelos · WODs · Rankings</title>
+  <meta name="description" content="StreetWOD: la comunidad para atletas de CrossFit. Crea WODs, reta a otros en duelos, sube a los rankings mundiales, sigue atletas y entrena con propósito.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <img src="logo.png" alt="StreetWOD" class="nav-logo">
+      <div class="nav-right">
+        <span id="lang-wrapper" class="lang-wrapper"></span>
+        <a href="admin.html" class="nav-admin" target="_blank" data-i18n="navAdmin">Admin</a>
+        <a href="#descarga" class="nav-cta" data-i18n="navComingSoon">Próximamente</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-glow"></div>
+    <div class="hero-content">
+      <p class="hero-tag" data-i18n="heroTag">LA COMUNIDAD QUE TE HACE MEJOR ATLETA</p>
+      <h1 data-i18n="heroTitle">Compite. Conecta.<br>Supérate.</h1>
+      <p class="hero-sub" data-i18n="heroSub">Duelos 1vs1, rankings mundiales, WODs compartidos, chat entre atletas y mucho más. Todo en una sola app.</p>
+      <a href="#descarga" class="btn btn-primary btn-lg">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+        <span data-i18n="heroCta">Próximamente en Android</span>
+      </a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-number">6</span>
+        <span class="stat-label" data-i18n="statTimers">Cronómetros</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <span class="stat-number">1v1</span>
+        <span class="stat-label" data-i18n="statDuels">Duelos</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <span class="stat-number">∞</span>
+        <span class="stat-label" data-i18n="statWods">WODs</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- COMUNIDAD -->
+  <section id="comunidad" class="section">
+    <div class="section-inner">
+      <span class="section-tag" data-i18n="sectionCommunity">COMUNIDAD</span>
+      <h2 data-i18n="communityTitle">No entrenes solo.<br>Entrena con propósito.</h2>
+      <p class="section-desc" data-i18n="communityDesc">StreetWOD es más que un cronómetro. Es una red de atletas que compiten, se retan y se superan juntos.</p>
+      <div class="grid-3">
+        <div class="card card-accent">
+          <div class="card-icon">⚔️</div>
+          <h3 data-i18n="cardDuelsTitle">Duelos 1vs1</h3>
+          <p data-i18n="cardDuelsDesc">Reta a cualquier atleta a completar el mismo WOD. Compara tiempos, confirma resultados y acumula victorias.</p>
+          <ul class="card-list">
+            <li data-i18n="cardDuels1">Elige el WOD del duelo</li>
+            <li data-i18n="cardDuels2">Registra y confirma resultados</li>
+            <li data-i18n="cardDuels3">Historial y estadísticas VS</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-icon">🏆</div>
+          <h3 data-i18n="cardRankingsTitle">Rankings mundiales</h3>
+          <p data-i18n="cardRankingsDesc">Registra tus RMs con vídeo y compite en clasificaciones globales filtradas por país, edad y sexo.</p>
+          <ul class="card-list">
+            <li data-i18n="cardRankings1">16 ejercicios de halterofilia</li>
+            <li data-i18n="cardRankings2">Verificación por vídeo</li>
+            <li data-i18n="cardRankings3">Percentil y comparativa</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-icon">👥</div>
+          <h3 data-i18n="cardFollowTitle">Sigue atletas</h3>
+          <p data-i18n="cardFollowDesc">Feed de actividad en tiempo real: WODs completados, duelos ganados, nuevos RMs de los atletas que sigues.</p>
+          <ul class="card-list">
+            <li data-i18n="cardFollow1">Feed personalizado</li>
+            <li data-i18n="cardFollow2">Chat entre seguidores mutuos</li>
+            <li data-i18n="cardFollow3">Perfiles con box y país</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WOD BUILDER -->
+  <section class="section section-alt">
+    <div class="section-inner">
+      <span class="section-tag" data-i18n="sectionWodBuilder">WOD BUILDER</span>
+      <h2 data-i18n="wodBuilderTitle">Crea, comparte y<br>descubre WODs</h2>
+      <p class="section-desc" data-i18n="wodBuilderDesc">Diseña entrenamientos completos con nuestro catálogo de ejercicios, esquemas de reps, Cash In/Out y estimaciones automáticas.</p>
+      <div class="grid-2">
+        <div class="feature-list">
+          <div class="feature-item">
+            <span class="feature-bullet"></span>
+            <div>
+              <strong data-i18n="featureAllFormats">Todos los formatos</strong>
+              <p data-i18n="featureAllFormatsDesc">For Time, EMOM, AMRAP, Tabata, Chipper y personalizado</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <span class="feature-bullet"></span>
+            <div>
+              <strong data-i18n="featureRepsScheme">Esquema de reps</strong>
+              <p data-i18n="featureRepsSchemeDesc">21-15-9, 10-8-6-4-2… elige qué ejercicios siguen el esquema y cuáles van con reps fijas</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <span class="feature-bullet"></span>
+            <div>
+              <strong data-i18n="featureCashInOut">Cash In y Cash Out</strong>
+              <p data-i18n="featureCashInOutDesc">Añade calentamiento previo y trabajo posterior al bloque principal</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <span class="feature-bullet"></span>
+            <div>
+              <strong data-i18n="featureTimeEst">Estimaciones de tiempo</strong>
+              <p data-i18n="featureTimeEstDesc">Cálculo automático por nivel: principiante, intermedio y RX</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <span class="feature-bullet"></span>
+            <div>
+              <strong data-i18n="featureExplore">Explora y comparte</strong>
+              <p data-i18n="featureExploreDesc">Descubre WODs de la comunidad, compártelos por redes y cópialos al portapapeles</p>
+            </div>
+          </div>
+        </div>
+        <div class="formats-showcase">
+          <div class="format-pill format-fortime">For Time</div>
+          <div class="format-pill format-emom">EMOM</div>
+          <div class="format-pill format-amrap">AMRAP</div>
+          <div class="format-pill format-tabata">Tabata</div>
+          <div class="format-pill format-chipper">Chipper</div>
+          <div class="format-pill format-custom">Custom</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WOD SEMANAL + EVOLUCIÓN -->
+  <section class="section">
+    <div class="section-inner">
+      <span class="section-tag" data-i18n="sectionProgress">PROGRESO</span>
+      <h2 data-i18n="progressTitle">Mide tu evolución,<br>semana a semana</h2>
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-icon">📅</div>
+          <h3 data-i18n="cardWeeklyTitle">WOD semanal</h3>
+          <p data-i18n="cardWeeklyDesc">Cada semana un nuevo WOD para toda la comunidad. Regístra tu resultado, compárate y acumula rachas.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">📈</div>
+          <h3 data-i18n="cardEvolutionTitle">Evolución de RMs</h3>
+          <p data-i18n="cardEvolutionDesc">Gráficas de progreso, percentil global y comparativa con la media de atletas en cada ejercicio.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🎖️</div>
+          <h3 data-i18n="cardStatsTitle">Logros y estadísticas</h3>
+          <p data-i18n="cardStatsDesc">WODs completados, racha actual, mejor racha, tasa RX y badges por hitos alcanzados.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPETICIONES -->
+  <section class="section section-alt">
+    <div class="section-inner">
+      <span class="section-tag" data-i18n="sectionCompetitions">COMPETICIONES</span>
+      <h2 data-i18n="compTitle">Organiza y descubre<br>competiciones</h2>
+      <p class="section-desc" data-i18n="compDesc">Crea competiciones online, presenciales o híbridas con fases, modalidades (individual, parejas, equipos), niveles y categorías de edad.</p>
+      <div class="comp-tags">
+        <span data-i18n="compOnline">Online</span>
+        <span data-i18n="compPresential">Presencial</span>
+        <span data-i18n="compHybrid">Híbrida</span>
+        <span data-i18n="compIndividual">Individual</span>
+        <span data-i18n="compPairs">Parejas</span>
+        <span data-i18n="compTeams">Equipos</span>
+        <span data-i18n="compPhases">Fases</span>
+        <span data-i18n="compScaled">Escalado</span>
+        <span data-i18n="compRx">RX</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CRONÓMETROS -->
+  <section class="section">
+    <div class="section-inner">
+      <span class="section-tag" data-i18n="sectionTimers">CRONÓMETROS</span>
+      <h2 data-i18n="timersTitle">6 timers profesionales</h2>
+      <p class="section-desc" data-i18n="timersDesc">Diseñados para CrossFit: sonidos, cuenta atrás, pantalla siempre encendida y barra de progreso visual.</p>
+      <div class="timers-row">
+        <div class="timer-chip"><span class="timer-dot dot-emom"></span>EMOM</div>
+        <div class="timer-chip"><span class="timer-dot dot-amrap"></span>AMRAP</div>
+        <div class="timer-chip"><span class="timer-dot dot-fortime"></span>For Time</div>
+        <div class="timer-chip"><span class="timer-dot dot-tabata"></span>Tabata</div>
+        <div class="timer-chip"><span class="timer-dot dot-countdown"></span>Countdown</div>
+        <div class="timer-chip"><span class="timer-dot dot-custom"></span>Custom</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="descarga" class="section section-cta">
+    <div class="section-inner cta-inner">
+      <img src="logo.png" alt="StreetWOD" class="cta-logo">
+      <h2 data-i18n="ctaTitle">Únete a la comunidad</h2>
+      <p data-i18n="ctaDesc">StreetWOD llega pronto a Android. Duelos, rankings, WODs compartidos y mucho más.</p>
+      <div class="cta-badge">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M6 18c0 .55.45 1 1 1h1v3.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5V19h2v3.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5V19h1c.55 0 1-.45 1-1V8H6v10zM3.5 8C2.67 8 2 8.67 2 9.5v7c0 .83.67 1.5 1.5 1.5S5 17.33 5 16.5v-7C5 8.67 4.33 8 3.5 8zm17 0c-.83 0-1.5.67-1.5 1.5v7c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5v-7c0-.83-.67-1.5-1.5-1.5zm-4.97-5.84l1.3-1.3c.2-.2.2-.51 0-.71-.2-.2-.51-.2-.71 0l-1.48 1.48C13.85 1.23 12.95 1 12 1c-.96 0-1.86.23-2.66.63L7.85.15c-.2-.2-.51-.2-.71 0-.2.2-.2.51 0 .71l1.31 1.31C6.97 3.26 6 5.01 6 7h12c0-1.99-.97-3.75-2.47-4.84zM10 5H9V4h1v1zm5 0h-1V4h1v1z"/></svg>
+        <span data-i18n="ctaBadge">Android — Próximamente</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <img src="logo.png" alt="StreetWOD" class="footer-logo">
+      <p data-i18n="footerTagline">Find the limits.</p>
+    </div>
+  </footer>
+
+  <script src="translations.js"></script>
+  <script src="i18n.js"></script>
+</body>
+</html>

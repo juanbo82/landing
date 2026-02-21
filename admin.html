@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin — StreetWOD · WOD Semanal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <div id="app">
+    <!-- LOGIN -->
+    <div id="login-screen" class="screen">
+      <div class="login-card">
+        <img src="logo.png" alt="StreetWOD" class="login-logo">
+        <h1>Admin</h1>
+        <p class="login-desc">Gestiona los WODs semanales de StreetWOD</p>
+        <form id="login-form" class="login-form">
+          <input type="email" id="login-email" placeholder="Email" required autocomplete="email">
+          <input type="password" id="login-password" placeholder="Contraseña" required autocomplete="current-password">
+          <button type="submit" class="btn btn-primary" id="login-btn">Iniciar sesión</button>
+          <p id="login-error" class="error-msg"></p>
+        </form>
+      </div>
+    </div>
+
+    <!-- PANEL -->
+    <div id="panel-screen" class="screen hidden">
+      <nav class="admin-nav">
+        <a href="index.html" class="back-link">← Volver</a>
+        <span class="admin-user" id="admin-email"></span>
+        <button type="button" class="btn btn-ghost btn-sm" id="logout-btn">Cerrar sesión</button>
+      </nav>
+      <main class="admin-main">
+        <div id="no-auth-msg" class="no-auth hidden">
+          <p>No tienes permisos de administrador. Contacta con el equipo si crees que deberías tener acceso.</p>
+        </div>
+        <div id="admin-content" class="hidden">
+          <h2>Añadir WOD semanal</h2>
+          <form id="wod-form" class="wod-form" autocomplete="off">
+
+            <!-- Row: Semana + Formato -->
+            <div class="form-row">
+              <div class="form-group">
+                <label for="week_start">Fecha del WOD</label>
+                <input type="date" id="week_start" required>
+              </div>
+              <div class="form-group">
+                <label for="format">Formato</label>
+                <select id="format" required>
+                  <option value="For Time">For Time</option>
+                  <option value="AMRAP">AMRAP</option>
+                  <option value="EMOM">EMOM</option>
+                  <option value="Tabata">Tabata</option>
+                  <option value="Chipper">Chipper</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Row: Título + Dificultad -->
+            <div class="form-row">
+              <div class="form-group">
+                <label for="title">Título</label>
+                <input type="text" id="title" placeholder="Ej: Fran, Murph, Cindy..." required maxlength="100">
+              </div>
+              <div class="form-group">
+                <label for="difficulty">Dificultad</label>
+                <select id="difficulty">
+                  <option value="1">1 - Easy</option>
+                  <option value="2">2 - Moderate</option>
+                  <option value="3" selected>3 - Hard</option>
+                  <option value="4">4 - Very Hard</option>
+                  <option value="5">5 - Brutal</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Descripción -->
+            <div class="form-group">
+              <label for="description">Descripción (opcional)</label>
+              <textarea id="description" rows="2" placeholder="Instrucciones adicionales..."></textarea>
+            </div>
+
+            <!-- Format-specific fields -->
+            <div id="format-fields" class="format-fields">
+              <!-- For Time / Chipper / Other -->
+              <div class="form-row" id="row-rounds" style="display:none">
+                <div class="form-group">
+                  <label for="rounds">Rondas</label>
+                  <input type="number" id="rounds" min="1" value="1" placeholder="1">
+                </div>
+                <div class="form-group">
+                  <label for="time_cap_minutes">Time Cap (min, opcional)</label>
+                  <input type="number" id="time_cap_minutes" min="0" placeholder="-">
+                </div>
+              </div>
+
+              <!-- Reps scheme -->
+              <div class="form-group" id="row-reps-scheme" style="display:none">
+                <label for="reps_scheme">Esquema de reps (opcional)</label>
+                <input type="text" id="reps_scheme" placeholder="Ej: 21-15-9, 10-8-6-4-2...">
+              </div>
+
+              <!-- AMRAP -->
+              <div class="form-group" id="row-amrap" style="display:none">
+                <label for="amrap_minutes">Duración AMRAP (min)</label>
+                <input type="number" id="amrap_minutes" min="1" placeholder="12">
+              </div>
+
+              <!-- EMOM -->
+              <div id="row-emom" style="display:none">
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="emom_minutes">Duración EMOM (min)</label>
+                    <input type="number" id="emom_minutes" min="1" placeholder="20">
+                  </div>
+                  <div class="form-group">
+                    <label for="emom_interval_seconds">Intervalo (seg)</label>
+                    <input type="number" id="emom_interval_seconds" min="10" value="60" placeholder="60">
+                  </div>
+                </div>
+                <div class="form-group" style="margin-top:0.75rem">
+                  <label for="emom_intervals_count">Intervalos diferentes</label>
+                  <input type="number" id="emom_intervals_count" min="1" max="10" value="1">
+                  <small>Ej: 3 intervalos = Min1, Min2, Min3 que se repiten cíclicamente</small>
+                </div>
+              </div>
+
+              <!-- Tabata: solo time cap -->
+              <div class="form-group" id="row-tabata-cap" style="display:none">
+                <label for="tabata_time_cap">Time Cap (min, opcional)</label>
+                <input type="number" id="tabata_time_cap" min="0" placeholder="-">
+              </div>
+            </div>
+
+            <!-- ========== CASH IN ========== -->
+            <div class="exercise-section" id="section-cash-in">
+              <div class="exercise-section-header">
+                <span class="exercise-section-icon">🔥</span>
+                <h3>Cash In <small>(opcional)</small></h3>
+                <button type="button" class="btn btn-sm btn-add" id="btn-add-cash-in">+ Ejercicio</button>
+              </div>
+              <div id="list-cash-in" class="exercise-list"></div>
+            </div>
+
+            <!-- ========== EJERCICIOS PRINCIPALES ========== -->
+            <div class="exercise-section" id="section-exercises">
+              <div class="exercise-section-header">
+                <span class="exercise-section-icon">💪</span>
+                <h3>Ejercicios</h3>
+                <button type="button" class="btn btn-sm btn-add" id="btn-add-exercise" style="display:none">+ Ejercicio</button>
+              </div>
+              <!-- Non-EMOM: lista normal -->
+              <div id="list-exercises" class="exercise-list"></div>
+              <!-- EMOM: intervalos -->
+              <div id="emom-intervals-container" class="emom-intervals" style="display:none"></div>
+            </div>
+
+            <!-- ========== CASH OUT ========== -->
+            <div class="exercise-section" id="section-cash-out">
+              <div class="exercise-section-header">
+                <span class="exercise-section-icon">🧊</span>
+                <h3>Cash Out <small>(opcional)</small></h3>
+                <button type="button" class="btn btn-sm btn-add" id="btn-add-cash-out">+ Ejercicio</button>
+              </div>
+              <div id="list-cash-out" class="exercise-list"></div>
+            </div>
+
+            <!-- Submit -->
+            <button type="submit" class="btn btn-primary btn-lg" id="submit-wod-btn">Guardar WOD</button>
+            <p id="form-error" class="error-msg"></p>
+            <p id="form-success" class="success-msg"></p>
+          </form>
+
+          <hr class="section-divider">
+
+          <h3>Últimos WODs</h3>
+          <div id="wod-list" class="wod-list"></div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="admin.js"></script>
+</body>
+</html>
