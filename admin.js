@@ -70,43 +70,47 @@ function initApp() {
   // ========================
   const EXERCISE_CATALOG = [
     // FUERZA (A-Z)
-    { id: 'back_squat', name: 'Back Squat', category: 'strength', unit: 'reps', defaultReps: 10, defaultWeight: 70 },
-    { id: 'barbell_row', name: 'Barbell Row', category: 'strength', unit: 'reps', defaultReps: 10, defaultWeight: 40 },
-    { id: 'clean_jerk', name: 'Clean & Jerk', category: 'strength', unit: 'reps', defaultReps: 6, defaultWeight: 60 },
-    { id: 'cluster', name: 'Cluster', category: 'strength', unit: 'reps', defaultReps: 6, defaultWeight: 60 },
-    { id: 'db_clean_jerk', name: 'DB Clean & Jerk', category: 'strength', unit: 'reps', defaultReps: 8, defaultWeight: 22 },
-    { id: 'db_snatch', name: 'DB Snatch', category: 'strength', unit: 'reps', defaultReps: 10, defaultWeight: 22 },
-    { id: 'db_thruster', name: 'DB Thruster', category: 'strength', unit: 'reps', defaultReps: 10, defaultWeight: 15 },
-    { id: 'deadlift', name: 'Deadlift', category: 'strength', unit: 'reps', defaultReps: 10, defaultWeight: 60 },
-    { id: 'devil_press', name: 'Devil Press', category: 'strength', unit: 'reps', defaultReps: 8, defaultWeight: 22 },
-    { id: 'double_db_step_up', name: 'Double DB Step-up', category: 'strength', unit: 'reps', defaultReps: 12, defaultWeight: 22 },
-    { id: 'front_squat', name: 'Front Squat', category: 'strength', unit: 'reps', defaultReps: 10, defaultWeight: 60 },
-    { id: 'goblet_squat', name: 'Goblet Squat', category: 'strength', unit: 'reps', defaultReps: 15, defaultWeight: 16 },
-    { id: 'ground_to_overhead', name: 'Ground to Overhead', category: 'strength', unit: 'reps', defaultReps: 8, defaultWeight: 50 },
-    { id: 'hang_clean', name: 'Hang Clean', category: 'strength', unit: 'reps', defaultReps: 10, defaultWeight: 50 },
-    { id: 'hang_power_clean', name: 'Hang Power Clean', category: 'strength', unit: 'reps', defaultReps: 10, defaultWeight: 50 },
-    { id: 'hang_power_snatch', name: 'Hang Power Snatch', category: 'strength', unit: 'reps', defaultReps: 8, defaultWeight: 40 },
-    { id: 'hip_clean', name: 'Hip Clean', category: 'strength', unit: 'reps', defaultReps: 8, defaultWeight: 60 },
-    { id: 'kb_swing', name: 'KB Swing', category: 'strength', unit: 'reps', defaultReps: 15, defaultWeight: 24 },
-    { id: 'lunges', name: 'Lunges', category: 'strength', unit: 'reps', defaultReps: 20, defaultWeight: 0 },
-    { id: 'man_maker', name: 'Man Maker', category: 'strength', unit: 'reps', defaultReps: 6, defaultWeight: 15 },
-    { id: 'overhead_squat', name: 'Overhead Squat', category: 'strength', unit: 'reps', defaultReps: 8, defaultWeight: 40 },
-    { id: 'power_clean', name: 'Power Clean', category: 'strength', unit: 'reps', defaultReps: 10, defaultWeight: 50 },
-    { id: 'power_snatch', name: 'Power Snatch', category: 'strength', unit: 'reps', defaultReps: 8, defaultWeight: 40 },
-    { id: 'push_jerk', name: 'Push Jerk', category: 'strength', unit: 'reps', defaultReps: 8, defaultWeight: 50 },
-    { id: 'push_press', name: 'Push Press', category: 'strength', unit: 'reps', defaultReps: 10, defaultWeight: 40 },
-    { id: 'sandbag_lunge', name: 'Sandbag Lunge', category: 'strength', unit: 'reps', defaultReps: 20, defaultWeight: 20 },
-    { id: 'shoulder_to_overhead', name: 'Shoulder to Overhead', category: 'strength', unit: 'reps', defaultReps: 10, defaultWeight: 50 },
-    { id: 'single_db_step_up', name: 'Single DB Step-up', category: 'strength', unit: 'reps', defaultReps: 12, defaultWeight: 22 },
-    { id: 'split_jerk', name: 'Split Jerk', category: 'strength', unit: 'reps', defaultReps: 6, defaultWeight: 60 },
-    { id: 'squat_clean', name: 'Squat Clean', category: 'strength', unit: 'reps', defaultReps: 8, defaultWeight: 60 },
-    { id: 'squat_snatch', name: 'Squat Snatch', category: 'strength', unit: 'reps', defaultReps: 6, defaultWeight: 50 },
-    { id: 'strict_press', name: 'Strict Press', category: 'strength', unit: 'reps', defaultReps: 10, defaultWeight: 35 },
-    { id: 'sumo_deadlift_hp', name: 'Sumo Deadlift High Pull', category: 'strength', unit: 'reps', defaultReps: 10, defaultWeight: 35 },
-    { id: 'thruster', name: 'Thruster', category: 'strength', unit: 'reps', defaultReps: 10, defaultWeight: 43 },
-    { id: 'turkish_getup', name: 'Turkish Get-Up', category: 'strength', unit: 'reps', defaultReps: 5, defaultWeight: 16 },
-    { id: 'walking_lunge', name: 'Walking Lunge (weighted)', category: 'strength', unit: 'reps', defaultReps: 20, defaultWeight: 20 },
-    { id: 'wall_ball', name: 'Wall Ball', category: 'strength', unit: 'reps', defaultReps: 20, defaultWeight: 9 },
+    { id: 'back_squat', name: 'Back Squat', category: 'strength', unit: 'reps', defaultReps: 10, defaultWeight: 70, defaultWeightRxMale: 70, defaultWeightRxFemale: 48, defaultWeightScaledMale: 50, defaultWeightScaledFemale: 35 },
+    { id: 'barbell_row', name: 'Barbell Row', category: 'strength', unit: 'reps', defaultReps: 10, defaultWeight: 40, defaultWeightRxMale: 40, defaultWeightRxFemale: 30, defaultWeightScaledMale: 30, defaultWeightScaledFemale: 20 },
+    { id: 'clean_jerk', name: 'Clean & Jerk', category: 'strength', unit: 'reps', defaultReps: 6, defaultWeight: 60, defaultWeightRxMale: 60, defaultWeightRxFemale: 43, defaultWeightScaledMale: 43, defaultWeightScaledFemale: 30 },
+    { id: 'cluster', name: 'Cluster', category: 'strength', unit: 'reps', defaultReps: 6, defaultWeight: 60, defaultWeightRxMale: 60, defaultWeightRxFemale: 43, defaultWeightScaledMale: 43, defaultWeightScaledFemale: 30 },
+    { id: 'deadlift', name: 'Deadlift', category: 'strength', unit: 'reps', defaultReps: 10, defaultWeight: 100, defaultWeightRxMale: 100, defaultWeightRxFemale: 70, defaultWeightScaledMale: 70, defaultWeightScaledFemale: 48 },
+    { id: 'double_db_clean_jerk', name: 'Double DB Clean & Jerk', category: 'strength', unit: 'reps', defaultReps: 8, defaultWeight: 22, defaultWeightRxMale: 22, defaultWeightRxFemale: 15, defaultWeightScaledMale: 15, defaultWeightScaledFemale: 10 },
+    { id: 'double_db_snatch', name: 'Double DB Snatch', category: 'strength', unit: 'reps', defaultReps: 10, defaultWeight: 22, defaultWeightRxMale: 22, defaultWeightRxFemale: 15, defaultWeightScaledMale: 15, defaultWeightScaledFemale: 10 },
+    { id: 'double_db_step_up', name: 'Double DB Step-up', category: 'strength', unit: 'reps', defaultReps: 12, defaultWeight: 22, defaultWeightRxMale: 22, defaultWeightRxFemale: 15, defaultWeightScaledMale: 15, defaultWeightScaledFemale: 10 },
+    { id: 'double_db_thruster', name: 'Double DB Thruster', category: 'strength', unit: 'reps', defaultReps: 10, defaultWeight: 22, defaultWeightRxMale: 22, defaultWeightRxFemale: 15, defaultWeightScaledMale: 15, defaultWeightScaledFemale: 10 },
+    { id: 'double_devil_press', name: 'Double Devil Press', category: 'strength', unit: 'reps', defaultReps: 8, defaultWeight: 22, defaultWeightRxMale: 22, defaultWeightRxFemale: 15, defaultWeightScaledMale: 15, defaultWeightScaledFemale: 10 },
+    { id: 'front_squat', name: 'Front Squat', category: 'strength', unit: 'reps', defaultReps: 10, defaultWeight: 60, defaultWeightRxMale: 60, defaultWeightRxFemale: 43, defaultWeightScaledMale: 43, defaultWeightScaledFemale: 30 },
+    { id: 'goblet_squat', name: 'Goblet Squat', category: 'strength', unit: 'reps', defaultReps: 15, defaultWeight: 24, defaultWeightRxMale: 24, defaultWeightRxFemale: 16, defaultWeightScaledMale: 16, defaultWeightScaledFemale: 12 },
+    { id: 'ground_to_overhead', name: 'Ground to Overhead', category: 'strength', unit: 'reps', defaultReps: 8, defaultWeight: 60, defaultWeightRxMale: 60, defaultWeightRxFemale: 43, defaultWeightScaledMale: 43, defaultWeightScaledFemale: 30 },
+    { id: 'hang_clean', name: 'Hang Clean', category: 'strength', unit: 'reps', defaultReps: 10, defaultWeight: 60, defaultWeightRxMale: 60, defaultWeightRxFemale: 43, defaultWeightScaledMale: 43, defaultWeightScaledFemale: 30 },
+    { id: 'hang_power_clean', name: 'Hang Power Clean', category: 'strength', unit: 'reps', defaultReps: 10, defaultWeight: 60, defaultWeightRxMale: 60, defaultWeightRxFemale: 43, defaultWeightScaledMale: 43, defaultWeightScaledFemale: 30 },
+    { id: 'hang_power_snatch', name: 'Hang Power Snatch', category: 'strength', unit: 'reps', defaultReps: 8, defaultWeight: 43, defaultWeightRxMale: 43, defaultWeightRxFemale: 30, defaultWeightScaledMale: 30, defaultWeightScaledFemale: 20 },
+    { id: 'hip_clean', name: 'Hip Clean', category: 'strength', unit: 'reps', defaultReps: 8, defaultWeight: 60, defaultWeightRxMale: 60, defaultWeightRxFemale: 43, defaultWeightScaledMale: 43, defaultWeightScaledFemale: 30 },
+    { id: 'kb_swing', name: 'KB Swing', category: 'strength', unit: 'reps', defaultReps: 15, defaultWeight: 24, defaultWeightRxMale: 24, defaultWeightRxFemale: 16, defaultWeightScaledMale: 16, defaultWeightScaledFemale: 12 },
+    { id: 'lunges', name: 'Lunges', category: 'strength', unit: 'reps', defaultReps: 20, defaultWeight: 0, defaultWeightRxMale: 0, defaultWeightRxFemale: 0, defaultWeightScaledMale: 0, defaultWeightScaledFemale: 0 },
+    { id: 'man_maker', name: 'Man Maker', category: 'strength', unit: 'reps', defaultReps: 6, defaultWeight: 22, defaultWeightRxMale: 22, defaultWeightRxFemale: 15, defaultWeightScaledMale: 15, defaultWeightScaledFemale: 10 },
+    { id: 'overhead_squat', name: 'Overhead Squat', category: 'strength', unit: 'reps', defaultReps: 8, defaultWeight: 43, defaultWeightRxMale: 43, defaultWeightRxFemale: 30, defaultWeightScaledMale: 30, defaultWeightScaledFemale: 20 },
+    { id: 'power_clean', name: 'Power Clean', category: 'strength', unit: 'reps', defaultReps: 10, defaultWeight: 60, defaultWeightRxMale: 60, defaultWeightRxFemale: 43, defaultWeightScaledMale: 43, defaultWeightScaledFemale: 30 },
+    { id: 'power_snatch', name: 'Power Snatch', category: 'strength', unit: 'reps', defaultReps: 8, defaultWeight: 43, defaultWeightRxMale: 43, defaultWeightRxFemale: 30, defaultWeightScaledMale: 30, defaultWeightScaledFemale: 20 },
+    { id: 'push_jerk', name: 'Push Jerk', category: 'strength', unit: 'reps', defaultReps: 8, defaultWeight: 60, defaultWeightRxMale: 60, defaultWeightRxFemale: 43, defaultWeightScaledMale: 43, defaultWeightScaledFemale: 30 },
+    { id: 'push_press', name: 'Push Press', category: 'strength', unit: 'reps', defaultReps: 10, defaultWeight: 43, defaultWeightRxMale: 43, defaultWeightRxFemale: 30, defaultWeightScaledMale: 30, defaultWeightScaledFemale: 20 },
+    { id: 'sandbag_lunge', name: 'Sandbag Lunge', category: 'strength', unit: 'reps', defaultReps: 20, defaultWeight: 30, defaultWeightRxMale: 30, defaultWeightRxFemale: 20, defaultWeightScaledMale: 20, defaultWeightScaledFemale: 15 },
+    { id: 'shoulder_to_overhead', name: 'Shoulder to Overhead', category: 'strength', unit: 'reps', defaultReps: 10, defaultWeight: 60, defaultWeightRxMale: 60, defaultWeightRxFemale: 43, defaultWeightScaledMale: 43, defaultWeightScaledFemale: 30 },
+    { id: 'single_db_clean_jerk', name: 'Single DB Clean & Jerk', category: 'strength', unit: 'reps', defaultReps: 8, defaultWeight: 22, defaultWeightRxMale: 22, defaultWeightRxFemale: 15, defaultWeightScaledMale: 15, defaultWeightScaledFemale: 10 },
+    { id: 'single_db_snatch', name: 'Single DB Snatch', category: 'strength', unit: 'reps', defaultReps: 10, defaultWeight: 22, defaultWeightRxMale: 22, defaultWeightRxFemale: 15, defaultWeightScaledMale: 15, defaultWeightScaledFemale: 10 },
+    { id: 'single_db_step_up', name: 'Single DB Step-up', category: 'strength', unit: 'reps', defaultReps: 12, defaultWeight: 22, defaultWeightRxMale: 22, defaultWeightRxFemale: 15, defaultWeightScaledMale: 15, defaultWeightScaledFemale: 10 },
+    { id: 'single_db_thruster', name: 'Single DB Thruster', category: 'strength', unit: 'reps', defaultReps: 10, defaultWeight: 22, defaultWeightRxMale: 22, defaultWeightRxFemale: 15, defaultWeightScaledMale: 15, defaultWeightScaledFemale: 10 },
+    { id: 'single_devil_press', name: 'Single Devil Press', category: 'strength', unit: 'reps', defaultReps: 8, defaultWeight: 22, defaultWeightRxMale: 22, defaultWeightRxFemale: 15, defaultWeightScaledMale: 15, defaultWeightScaledFemale: 10 },
+    { id: 'split_jerk', name: 'Split Jerk', category: 'strength', unit: 'reps', defaultReps: 6, defaultWeight: 60, defaultWeightRxMale: 60, defaultWeightRxFemale: 43, defaultWeightScaledMale: 43, defaultWeightScaledFemale: 30 },
+    { id: 'squat_clean', name: 'Squat Clean', category: 'strength', unit: 'reps', defaultReps: 8, defaultWeight: 60, defaultWeightRxMale: 60, defaultWeightRxFemale: 43, defaultWeightScaledMale: 43, defaultWeightScaledFemale: 30 },
+    { id: 'squat_snatch', name: 'Squat Snatch', category: 'strength', unit: 'reps', defaultReps: 6, defaultWeight: 50, defaultWeightRxMale: 50, defaultWeightRxFemale: 35, defaultWeightScaledMale: 35, defaultWeightScaledFemale: 25 },
+    { id: 'strict_press', name: 'Strict Press', category: 'strength', unit: 'reps', defaultReps: 10, defaultWeight: 40, defaultWeightRxMale: 40, defaultWeightRxFemale: 25, defaultWeightScaledMale: 25, defaultWeightScaledFemale: 15 },
+    { id: 'sumo_deadlift_hp', name: 'Sumo Deadlift High Pull', category: 'strength', unit: 'reps', defaultReps: 10, defaultWeight: 43, defaultWeightRxMale: 43, defaultWeightRxFemale: 30, defaultWeightScaledMale: 30, defaultWeightScaledFemale: 20 },
+    { id: 'thruster', name: 'Thruster', category: 'strength', unit: 'reps', defaultReps: 10, defaultWeight: 43, defaultWeightRxMale: 43, defaultWeightRxFemale: 30, defaultWeightScaledMale: 30, defaultWeightScaledFemale: 20 },
+    { id: 'turkish_getup', name: 'Turkish Get-Up', category: 'strength', unit: 'reps', defaultReps: 5, defaultWeight: 24, defaultWeightRxMale: 24, defaultWeightRxFemale: 16, defaultWeightScaledMale: 16, defaultWeightScaledFemale: 12 },
+    { id: 'walking_lunge', name: 'Walking Lunge (weighted)', category: 'strength', unit: 'reps', defaultReps: 20, defaultWeight: 24, defaultWeightRxMale: 24, defaultWeightRxFemale: 16, defaultWeightScaledMale: 16, defaultWeightScaledFemale: 12 },
+    { id: 'wall_ball', name: 'Wall Ball', category: 'strength', unit: 'reps', defaultReps: 20, defaultWeight: 9, defaultWeightRxMale: 9, defaultWeightRxFemale: 6, defaultWeightScaledMale: 6, defaultWeightScaledFemale: 4 },
     // GIMNÁSTICOS (A-Z)
     { id: 'air_squat', name: 'Air Squat', category: 'gymnastic', unit: 'reps', defaultReps: 20 },
     { id: 'bar_muscle_up', name: 'Bar Muscle-up', category: 'gymnastic', unit: 'reps', defaultReps: 3 },
@@ -156,22 +160,17 @@ function initApp() {
     { id: 'v_up', name: 'V-up', category: 'gymnastic', unit: 'reps', defaultReps: 15 },
     { id: 'wall_walk', name: 'Wall Walk', category: 'gymnastic', unit: 'reps', defaultReps: 3 },
     // CARDIO (A-Z)
-    { id: 'bike_cal', name: 'Assault Bike (cal)', category: 'cardio', unit: 'calories', defaultReps: 15 },
-    { id: 'bike_erg_cal', name: 'Bike Erg (cal)', category: 'cardio', unit: 'calories', defaultReps: 15 },
-    { id: 'echo_bike_cal', name: 'Echo Bike (cal)', category: 'cardio', unit: 'calories', defaultReps: 15 },
+    { id: 'bike_cal', name: 'Assault Bike (cal)', category: 'cardio', unit: 'calories', defaultReps: 15, defaultWeightRxMale: 15, defaultWeightRxFemale: 12, defaultWeightScaledMale: 12, defaultWeightScaledFemale: 10 },
+    { id: 'bike_erg_cal', name: 'Bike Erg (cal)', category: 'cardio', unit: 'calories', defaultReps: 15, defaultWeightRxMale: 15, defaultWeightRxFemale: 12, defaultWeightScaledMale: 12, defaultWeightScaledFemale: 10 },
+    { id: 'echo_bike_cal', name: 'Echo Bike (cal)', category: 'cardio', unit: 'calories', defaultReps: 15, defaultWeightRxMale: 15, defaultWeightRxFemale: 12, defaultWeightScaledMale: 12, defaultWeightScaledFemale: 10 },
     { id: 'farmers_carry', name: "Farmer's Carry", category: 'cardio', unit: 'meters', defaultReps: 50 },
-    { id: 'row_cal', name: 'Row (cal)', category: 'cardio', unit: 'calories', defaultReps: 15 },
+    { id: 'row_cal', name: 'Row (cal)', category: 'cardio', unit: 'calories', defaultReps: 15, defaultWeightRxMale: 15, defaultWeightRxFemale: 12, defaultWeightScaledMale: 12, defaultWeightScaledFemale: 10 },
     { id: 'row_500', name: 'Row 500m', category: 'cardio', unit: 'meters', defaultReps: 500 },
     { id: 'row_1000', name: 'Row 1000m', category: 'cardio', unit: 'meters', defaultReps: 1000 },
     { id: 'row_2000', name: 'Row 2000m', category: 'cardio', unit: 'meters', defaultReps: 2000 },
-    { id: 'run_200', name: 'Run 200m', category: 'cardio', unit: 'meters', defaultReps: 200 },
-    { id: 'run_400', name: 'Run 400m', category: 'cardio', unit: 'meters', defaultReps: 400 },
-    { id: 'run_800', name: 'Run 800m', category: 'cardio', unit: 'meters', defaultReps: 800 },
-    { id: 'run_1000', name: 'Run 1000m', category: 'cardio', unit: 'meters', defaultReps: 1000 },
-    { id: 'run_1600', name: 'Run 1600m (1 mile)', category: 'cardio', unit: 'meters', defaultReps: 1600 },
-    { id: 'run_5000', name: 'Run 5K', category: 'cardio', unit: 'meters', defaultReps: 5000 },
+    { id: 'run', name: 'Run', category: 'cardio', unit: 'meters', defaultReps: 400 },
     { id: 'shuttle_run', name: 'Shuttle Run', category: 'cardio', unit: 'reps', defaultReps: 1 },
-    { id: 'ski_cal', name: 'Ski Erg (cal)', category: 'cardio', unit: 'calories', defaultReps: 12 },
+    { id: 'ski_cal', name: 'Ski Erg (cal)', category: 'cardio', unit: 'calories', defaultReps: 12, defaultWeightRxMale: 12, defaultWeightRxFemale: 10, defaultWeightScaledMale: 10, defaultWeightScaledFemale: 8 },
     { id: 'sled_push', name: 'Sled Push', category: 'cardio', unit: 'meters', defaultReps: 25 },
     // TIEMPO / DESCANSO
     { id: 'rest_min', name: 'Descanso', category: 'cardio', unit: 'minutes', defaultReps: 2 },
@@ -216,8 +215,23 @@ function initApp() {
     const exSelect = div.querySelector('[data-field="exercise-select"]');
     const nameInput = div.querySelector('[data-field="name"]');
     const repsInput = div.querySelector('[data-field="reps"]');
-    const weightInput = div.querySelector('[data-field="weight"]');
     const unitSelect = div.querySelector('[data-field="unit"]');
+    const weightGrid = div.querySelector('[data-field="weight-grid"]');
+    const wRxM = div.querySelector('[data-field="weightRxMale"]');
+    const wRxF = div.querySelector('[data-field="weightRxFemale"]');
+    const wScM = div.querySelector('[data-field="weightScaledMale"]');
+    const wScF = div.querySelector('[data-field="weightScaledFemale"]');
+
+    function toggleWeightGrid() {
+      if (weightGrid) {
+        const show = catSelect.value === 'strength' || unitSelect.value === 'calories';
+        weightGrid.style.display = show ? 'grid' : 'none';
+        const unitLabel = unitSelect.value === 'calories' ? 'cal' : 'kg';
+        weightGrid.querySelectorAll('label').forEach(l => {
+          l.textContent = l.textContent.replace(/\(.*\)/, `(${unitLabel})`);
+        });
+      }
+    }
 
     function refreshExercises() {
       const cat = catSelect.value;
@@ -225,6 +239,7 @@ function initApp() {
       exSelect.style.display = '';
       nameInput.style.display = 'none';
       nameInput.removeAttribute('required');
+      toggleWeightGrid();
     }
 
     catSelect.addEventListener('change', refreshExercises);
@@ -243,16 +258,15 @@ function initApp() {
       if (ex) {
         nameInput.value = ex.name;
         repsInput.value = ex.defaultReps;
-        if (ex.defaultWeight) {
-          weightInput.value = ex.defaultWeight;
-        } else {
-          weightInput.value = '';
-        }
         unitSelect.value = ex.unit;
+        if (wRxM) wRxM.value = ex.defaultWeightRxMale || '';
+        if (wRxF) wRxF.value = ex.defaultWeightRxFemale || '';
+        if (wScM) wScM.value = ex.defaultWeightScaledMale || '';
+        if (wScF) wScF.value = ex.defaultWeightScaledFemale || '';
+        toggleWeightGrid();
       }
     });
 
-    // Back to select button on custom name
     nameInput.addEventListener('blur', () => {
       if (!nameInput.value.trim() && nameInput.style.display !== 'none') {
         nameInput.style.display = 'none';
@@ -260,6 +274,8 @@ function initApp() {
         exSelect.value = '';
       }
     });
+
+    unitSelect.addEventListener('change', toggleWeightGrid);
 
     refreshExercises();
   }
@@ -287,12 +303,14 @@ function initApp() {
         <input type="number" data-field="reps" min="0" value="10" required>
       </div>
       <div class="form-group">
-        <label>Peso (kg)</label>
-        <input type="number" data-field="weight" min="0" step="0.5" placeholder="-">
-      </div>
-      <div class="form-group">
         <label>Unidad</label>
         <select data-field="unit">${unitOptions()}</select>
+      </div>
+      <div class="weight-fields-grid" data-field="weight-grid" style="display:none;grid-template-columns:1fr 1fr;gap:0.25rem 0.5rem;width:100%">
+        <div class="form-group" style="margin:0"><label style="font-size:0.65rem">♂ RX (kg)</label><input type="number" data-field="weightRxMale" min="0" step="0.5" placeholder="-"></div>
+        <div class="form-group" style="margin:0"><label style="font-size:0.65rem">♀ RX (kg)</label><input type="number" data-field="weightRxFemale" min="0" step="0.5" placeholder="-"></div>
+        <div class="form-group" style="margin:0"><label style="font-size:0.65rem">♂ SC (kg)</label><input type="number" data-field="weightScaledMale" min="0" step="0.5" placeholder="-"></div>
+        <div class="form-group" style="margin:0"><label style="font-size:0.65rem">♀ SC (kg)</label><input type="number" data-field="weightScaledFemale" min="0" step="0.5" placeholder="-"></div>
       </div>
       <div style="display:flex;flex-direction:column;gap:0.25rem;align-items:center">
         ${showSchemeToggle ? `<button type="button" class="scheme-toggle" data-field="useScheme" data-active="true" title="Usa el esquema de reps del WOD">Esquema</button>` : ''}
@@ -342,12 +360,14 @@ function initApp() {
         <input type="number" data-field="reps" min="0" value="10" required>
       </div>
       <div class="form-group">
-        <label>Peso (kg)</label>
-        <input type="number" data-field="weight" min="0" step="0.5" placeholder="-">
-      </div>
-      <div class="form-group">
         <label>Unidad</label>
         <select data-field="unit">${unitOptions()}</select>
+      </div>
+      <div class="weight-fields-grid" data-field="weight-grid" style="display:none;grid-template-columns:1fr 1fr;gap:0.25rem 0.5rem;width:100%">
+        <div class="form-group" style="margin:0"><label style="font-size:0.65rem">♂ RX (kg)</label><input type="number" data-field="weightRxMale" min="0" step="0.5" placeholder="-"></div>
+        <div class="form-group" style="margin:0"><label style="font-size:0.65rem">♀ RX (kg)</label><input type="number" data-field="weightRxFemale" min="0" step="0.5" placeholder="-"></div>
+        <div class="form-group" style="margin:0"><label style="font-size:0.65rem">♂ SC (kg)</label><input type="number" data-field="weightScaledMale" min="0" step="0.5" placeholder="-"></div>
+        <div class="form-group" style="margin:0"><label style="font-size:0.65rem">♀ SC (kg)</label><input type="number" data-field="weightScaledFemale" min="0" step="0.5" placeholder="-"></div>
       </div>
       <button type="button" class="btn-danger" onclick="this.closest('.emom-exercise-card').remove()">✕</button>
     `;
@@ -356,13 +376,29 @@ function initApp() {
     const exSelect = div.querySelector('[data-field="exercise-select"]');
     const nameInput = div.querySelector('[data-field="name"]');
     const repsInput = div.querySelector('[data-field="reps"]');
-    const weightInput = div.querySelector('[data-field="weight"]');
     const unitSelect = div.querySelector('[data-field="unit"]');
+    const weightGrid = div.querySelector('[data-field="weight-grid"]');
+    const wRxM = div.querySelector('[data-field="weightRxMale"]');
+    const wRxF = div.querySelector('[data-field="weightRxFemale"]');
+    const wScM = div.querySelector('[data-field="weightScaledMale"]');
+    const wScF = div.querySelector('[data-field="weightScaledFemale"]');
+
+    function toggleWeightGrid() {
+      const show = catSelect.value === 'strength' || unitSelect.value === 'calories';
+      if (weightGrid) {
+        weightGrid.style.display = show ? 'grid' : 'none';
+        const unitLabel = unitSelect.value === 'calories' ? 'cal' : 'kg';
+        weightGrid.querySelectorAll('label').forEach(l => {
+          l.textContent = l.textContent.replace(/\(.*\)/, `(${unitLabel})`);
+        });
+      }
+    }
 
     function refreshExercises() {
       exSelect.innerHTML = buildExerciseOptions(catSelect.value);
       exSelect.style.display = '';
       nameInput.style.display = 'none';
+      toggleWeightGrid();
     }
     catSelect.addEventListener('change', refreshExercises);
 
@@ -379,9 +415,12 @@ function initApp() {
       if (ex) {
         nameInput.value = ex.name;
         repsInput.value = ex.defaultReps;
-        if (ex.defaultWeight) weightInput.value = ex.defaultWeight;
-        else weightInput.value = '';
         unitSelect.value = ex.unit;
+        if (wRxM) wRxM.value = ex.defaultWeightRxMale || '';
+        if (wRxF) wRxF.value = ex.defaultWeightRxFemale || '';
+        if (wScM) wScM.value = ex.defaultWeightScaledMale || '';
+        if (wScF) wScF.value = ex.defaultWeightScaledFemale || '';
+        toggleWeightGrid();
       }
     });
     nameInput.addEventListener('blur', () => {
@@ -391,6 +430,8 @@ function initApp() {
         exSelect.value = '';
       }
     });
+
+    unitSelect.addEventListener('change', toggleWeightGrid);
 
     refreshExercises();
     return div;
@@ -549,8 +590,6 @@ function initApp() {
       const name = getCardExerciseName(card);
       if (!name) continue;
       const reps = parseInt(card.querySelector('[data-field="reps"]').value) || 0;
-      const weightVal = card.querySelector('[data-field="weight"]').value;
-      const weight = weightVal ? parseFloat(weightVal) : undefined;
       const category = card.querySelector('[data-field="category"]').value;
       const unit = getCardExerciseUnit(card);
       const schemeBtn = card.querySelector('[data-field="useScheme"]');
@@ -559,15 +598,32 @@ function initApp() {
       const exSelect = card.querySelector('[data-field="exercise-select"]');
       const catalogId = (exSelect && exSelect.value && exSelect.value !== '__custom__') ? exSelect.value : uuid();
 
-      exercises.push({
+      const wRxM = card.querySelector('[data-field="weightRxMale"]');
+      const wRxF = card.querySelector('[data-field="weightRxFemale"]');
+      const wScM = card.querySelector('[data-field="weightScaledMale"]');
+      const wScF = card.querySelector('[data-field="weightScaledFemale"]');
+
+      const obj = {
         exerciseId: catalogId || card.dataset.id || uuid(),
         name,
         reps,
-        weight: weight || undefined,
         category,
         unit,
         useRepsScheme: useRepsScheme === false ? false : undefined,
-      });
+      };
+
+      if (category === 'strength' || unit === 'calories') {
+        const rxM = wRxM ? parseFloat(wRxM.value) : NaN;
+        const rxF = wRxF ? parseFloat(wRxF.value) : NaN;
+        const scM = wScM ? parseFloat(wScM.value) : NaN;
+        const scF = wScF ? parseFloat(wScF.value) : NaN;
+        if (!isNaN(rxM)) obj.weightRxMale = rxM;
+        if (!isNaN(rxF)) obj.weightRxFemale = rxF;
+        if (!isNaN(scM)) obj.weightScaledMale = scM;
+        if (!isNaN(scF)) obj.weightScaledFemale = scF;
+      }
+
+      exercises.push(obj);
     }
     return exercises;
   }
@@ -579,22 +635,36 @@ function initApp() {
       const name = getCardExerciseName(card);
       if (!name) continue;
       const reps = parseInt(card.querySelector('[data-field="reps"]').value) || 0;
-      const weightVal = card.querySelector('[data-field="weight"]').value;
-      const weight = weightVal ? parseFloat(weightVal) : undefined;
       const category = card.querySelector('[data-field="category"]').value;
       const unit = getCardExerciseUnit(card);
 
       const exSelect = card.querySelector('[data-field="exercise-select"]');
       const catalogId = (exSelect && exSelect.value && exSelect.value !== '__custom__') ? exSelect.value : uuid();
 
-      exercises.push({
+      const obj = {
         exerciseId: catalogId,
         name,
         reps,
-        weight: weight || undefined,
         category,
         unit,
-      });
+      };
+
+      if (category === 'strength' || unit === 'calories') {
+        const wRxM = card.querySelector('[data-field="weightRxMale"]');
+        const wRxF = card.querySelector('[data-field="weightRxFemale"]');
+        const wScM = card.querySelector('[data-field="weightScaledMale"]');
+        const wScF = card.querySelector('[data-field="weightScaledFemale"]');
+        const rxM = wRxM ? parseFloat(wRxM.value) : NaN;
+        const rxF = wRxF ? parseFloat(wRxF.value) : NaN;
+        const scM = wScM ? parseFloat(wScM.value) : NaN;
+        const scF = wScF ? parseFloat(wScF.value) : NaN;
+        if (!isNaN(rxM)) obj.weightRxMale = rxM;
+        if (!isNaN(rxF)) obj.weightRxFemale = rxF;
+        if (!isNaN(scM)) obj.weightScaledMale = scM;
+        if (!isNaN(scF)) obj.weightScaledFemale = scF;
+      }
+
+      exercises.push(obj);
     }
     return exercises;
   }
