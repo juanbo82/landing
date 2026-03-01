@@ -106,6 +106,7 @@ img { max-width: 100%; display: block; }
     radial-gradient(circle 300px at 80% 70%, rgba(139,92,246,.05), transparent);
 }
 .hero-content { position: relative; z-index: 1; max-width: 640px; }
+.hero-split-text .hero-sub { margin-left: 0; }
 .hero-tag {
   font-family: 'Oswald', sans-serif;
   font-size: 0.75rem; font-weight: 600; letter-spacing: 0.2em;
@@ -321,7 +322,126 @@ img { max-width: 100%; display: block; }
 .footer-logo { height: 20px; filter: invert(1); opacity: .5; }
 .footer p { font-size: 0.8rem; color: var(--text-3); }
 
+/* ---- PHONE MOCKUP ---- */
+.phone-mockup {
+  position: relative;
+  width: 260px;
+  padding: 12px;
+  background: #1a1a1f;
+  border-radius: 36px;
+  border: 2px solid #2a2a30;
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,.05),
+    0 25px 60px rgba(0,0,0,.6),
+    0 0 40px rgba(245,158,11,.08);
+  overflow: hidden;
+}
+.phone-mockup::before {
+  content: '';
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 22px;
+  background: #0a0a0c;
+  border-radius: 0 0 14px 14px;
+  z-index: 5;
+}
+.phone-mockup img {
+  width: 100%;
+  border-radius: 24px;
+  display: block;
+}
+.phone-mockup-lg {
+  width: 280px;
+}
+
+/* ---- HERO SPLIT LAYOUT ---- */
+.hero-split {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+.hero-split-text {
+  flex: 1;
+  max-width: 540px;
+}
+.hero-split-visual {
+  flex-shrink: 0;
+  position: relative;
+}
+.hero-split-visual .phone-mockup {
+  animation: floatPhone 6s ease-in-out infinite;
+}
+@keyframes floatPhone {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+/* ---- SECTION WITH MOCKUP (split) ---- */
+.section-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+.section-split-reverse {
+  direction: rtl;
+}
+.section-split-reverse > * {
+  direction: ltr;
+}
+.section-split-text { }
+.section-split-text .timers-row {
+  justify-content: flex-start;
+}
+.section-split-visual {
+  display: flex;
+  justify-content: center;
+}
+.section-split-visual .phone-mockup {
+  animation: floatPhone 7s ease-in-out infinite;
+}
+
+/* ---- PHONE GROUP (two phones) ---- */
+.phone-group {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+.phone-group .phone-mockup:nth-child(2) {
+  margin-top: 3rem;
+  animation-delay: -3s;
+}
+
 /* ---- RESPONSIVE ---- */
+@media (max-width: 900px) {
+  .hero-split {
+    flex-direction: column;
+    text-align: center;
+    gap: 2.5rem;
+  }
+  .hero-split-text { max-width: 100%; }
+  .hero-sub { margin-left: auto; margin-right: auto; }
+  .section-split {
+    grid-template-columns: 1fr;
+  }
+  .section-split-reverse {
+    direction: ltr;
+  }
+  .section-split-visual {
+    order: -1;
+  }
+  .phone-group {
+    justify-content: center;
+  }
+}
 @media (max-width: 640px) {
   .hero { padding-top: 5rem; }
   .hero h1 { font-size: 2.25rem; }
@@ -331,6 +451,10 @@ img { max-width: 100%; display: block; }
   .formats-showcase { justify-content: flex-start; }
   .timers-row { justify-content: flex-start; }
   .footer-inner { flex-direction: column; text-align: center; }
+  .phone-mockup { width: 200px; }
+  .phone-mockup-lg { width: 220px; }
+  .phone-group { gap: 1rem; }
+  .phone-group .phone-mockup:nth-child(2) { margin-top: 2rem; }
 }
 
 /* ---- RTL (Árabe) ---- */

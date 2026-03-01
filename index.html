@@ -27,29 +27,36 @@
   <!-- HERO -->
   <header class="hero">
     <div class="hero-glow"></div>
-    <div class="hero-content">
-      <p class="hero-tag" data-i18n="heroTag">LA COMUNIDAD QUE TE HACE MEJOR ATLETA</p>
-      <h1 data-i18n="heroTitle">Compite. Conecta.<br>Supérate.</h1>
-      <p class="hero-sub" data-i18n="heroSub">Duelos 1vs1, rankings mundiales, WODs compartidos, chat entre atletas y mucho más. Todo en una sola app.</p>
-      <a href="#descarga" class="btn btn-primary btn-lg">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
-        <span data-i18n="heroCta">Próximamente en Android</span>
-      </a>
-    </div>
-    <div class="hero-stats">
-      <div class="stat">
-        <span class="stat-number">6</span>
-        <span class="stat-label" data-i18n="statTimers">Cronómetros</span>
+    <div class="hero-split">
+      <div class="hero-split-text">
+        <p class="hero-tag" data-i18n="heroTag">LA COMUNIDAD QUE TE HACE MEJOR ATLETA</p>
+        <h1 data-i18n="heroTitle">Compite. Conecta.<br>Supérate.</h1>
+        <p class="hero-sub" data-i18n="heroSub">Duelos 1vs1, rankings mundiales, WODs compartidos, chat entre atletas y mucho más. Todo en una sola app.</p>
+        <a href="#descarga" class="btn btn-primary btn-lg">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+          <span data-i18n="heroCta">Próximamente en Android</span>
+        </a>
+        <div class="hero-stats" style="margin-top: 2.5rem;">
+          <div class="stat">
+            <span class="stat-number">6</span>
+            <span class="stat-label" data-i18n="statTimers">Cronómetros</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <span class="stat-number">1v1</span>
+            <span class="stat-label" data-i18n="statDuels">Duelos</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <span class="stat-number">∞</span>
+            <span class="stat-label" data-i18n="statWods">WODs</span>
+          </div>
+        </div>
       </div>
-      <div class="stat-divider"></div>
-      <div class="stat">
-        <span class="stat-number">1v1</span>
-        <span class="stat-label" data-i18n="statDuels">Duelos</span>
-      </div>
-      <div class="stat-divider"></div>
-      <div class="stat">
-        <span class="stat-number">∞</span>
-        <span class="stat-label" data-i18n="statWods">WODs</span>
+      <div class="hero-split-visual">
+        <div class="phone-mockup phone-mockup-lg">
+          <img src="screen-home.png" alt="StreetWOD App">
+        </div>
       </div>
     </div>
   </header>
@@ -154,23 +161,30 @@
   <!-- WOD SEMANAL + EVOLUCIÓN -->
   <section class="section">
     <div class="section-inner">
-      <span class="section-tag" data-i18n="sectionProgress">PROGRESO</span>
-      <h2 data-i18n="progressTitle">Mide tu evolución,<br>semana a semana</h2>
-      <div class="grid-3">
-        <div class="card">
-          <div class="card-icon">📅</div>
-          <h3 data-i18n="cardWeeklyTitle">WOD semanal</h3>
-          <p data-i18n="cardWeeklyDesc">Cada semana un nuevo WOD para toda la comunidad. Regístra tu resultado, compárate y acumula rachas.</p>
+      <div class="section-split section-split-reverse">
+        <div class="section-split-text">
+          <span class="section-tag" data-i18n="sectionProgress">PROGRESO</span>
+          <h2 data-i18n="progressTitle">Mide tu evolución,<br>semana a semana</h2>
+          <div class="card" style="margin-bottom: 1rem;">
+            <div class="card-icon">📅</div>
+            <h3 data-i18n="cardWeeklyTitle">WOD semanal</h3>
+            <p data-i18n="cardWeeklyDesc">Cada semana un nuevo WOD para toda la comunidad. Regístra tu resultado, compárate y acumula rachas.</p>
+          </div>
+          <div class="card" style="margin-bottom: 1rem;">
+            <div class="card-icon">📈</div>
+            <h3 data-i18n="cardEvolutionTitle">Evolución de RMs</h3>
+            <p data-i18n="cardEvolutionDesc">Gráficas de progreso, percentil global y comparativa con la media de atletas en cada ejercicio.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon">🎖️</div>
+            <h3 data-i18n="cardStatsTitle">Logros y estadísticas</h3>
+            <p data-i18n="cardStatsDesc">WODs completados, racha actual, mejor racha, tasa RX y badges por hitos alcanzados.</p>
+          </div>
         </div>
-        <div class="card">
-          <div class="card-icon">📈</div>
-          <h3 data-i18n="cardEvolutionTitle">Evolución de RMs</h3>
-          <p data-i18n="cardEvolutionDesc">Gráficas de progreso, percentil global y comparativa con la media de atletas en cada ejercicio.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon">🎖️</div>
-          <h3 data-i18n="cardStatsTitle">Logros y estadísticas</h3>
-          <p data-i18n="cardStatsDesc">WODs completados, racha actual, mejor racha, tasa RX y badges por hitos alcanzados.</p>
+        <div class="section-split-visual">
+          <div class="phone-mockup phone-mockup-lg">
+            <img src="screen-evolution.png" alt="Evolución de RMs">
+          </div>
         </div>
       </div>
     </div>
@@ -199,16 +213,25 @@
   <!-- CRONÓMETROS -->
   <section class="section">
     <div class="section-inner">
-      <span class="section-tag" data-i18n="sectionTimers">CRONÓMETROS</span>
-      <h2 data-i18n="timersTitle">6 timers profesionales</h2>
-      <p class="section-desc" data-i18n="timersDesc">Diseñados para CrossFit: sonidos, cuenta atrás, pantalla siempre encendida y barra de progreso visual.</p>
-      <div class="timers-row">
-        <div class="timer-chip"><span class="timer-dot dot-emom"></span>EMOM</div>
-        <div class="timer-chip"><span class="timer-dot dot-amrap"></span>AMRAP</div>
-        <div class="timer-chip"><span class="timer-dot dot-fortime"></span>For Time</div>
-        <div class="timer-chip"><span class="timer-dot dot-tabata"></span>Tabata</div>
-        <div class="timer-chip"><span class="timer-dot dot-countdown"></span>Countdown</div>
-        <div class="timer-chip"><span class="timer-dot dot-custom"></span>Custom</div>
+      <div class="section-split">
+        <div class="section-split-visual">
+          <div class="phone-mockup">
+            <img src="screen-custom.png" alt="Custom Timer">
+          </div>
+        </div>
+        <div class="section-split-text">
+          <span class="section-tag" data-i18n="sectionTimers">CRONÓMETROS</span>
+          <h2 data-i18n="timersTitle">6 timers profesionales</h2>
+          <p class="section-desc" data-i18n="timersDesc">Diseñados para CrossFit: sonidos, cuenta atrás, pantalla siempre encendida y barra de progreso visual.</p>
+          <div class="timers-row">
+            <div class="timer-chip"><span class="timer-dot dot-emom"></span>EMOM</div>
+            <div class="timer-chip"><span class="timer-dot dot-amrap"></span>AMRAP</div>
+            <div class="timer-chip"><span class="timer-dot dot-fortime"></span>For Time</div>
+            <div class="timer-chip"><span class="timer-dot dot-tabata"></span>Tabata</div>
+            <div class="timer-chip"><span class="timer-dot dot-countdown"></span>Countdown</div>
+            <div class="timer-chip"><span class="timer-dot dot-custom"></span>Custom</div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
