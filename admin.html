@@ -8,6 +8,59 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="admin.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <style>
+    .flatpickr-calendar {
+      background: #111114;
+      border: 1px solid #1e1e24;
+      box-shadow: 0 12px 40px rgba(0,0,0,.6);
+      font-family: 'Inter', sans-serif;
+    }
+    .flatpickr-months .flatpickr-month,
+    .flatpickr-current-month .flatpickr-monthDropdown-months,
+    .flatpickr-weekdays,
+    span.flatpickr-weekday {
+      background: #111114;
+      color: #a1a1aa;
+    }
+    .flatpickr-current-month input.cur-year,
+    .flatpickr-current-month .flatpickr-monthDropdown-months {
+      color: #fafafa;
+    }
+    .flatpickr-day {
+      color: #fafafa;
+      border-radius: 6px;
+    }
+    .flatpickr-day:hover {
+      background: rgba(245,158,11,0.15);
+      border-color: transparent;
+    }
+    .flatpickr-day.today {
+      border-color: #f59e0b;
+    }
+    .flatpickr-day.selected {
+      background: #f59e0b;
+      border-color: #f59e0b;
+      color: #0a0a0b;
+    }
+    .flatpickr-day.selected:hover {
+      background: #d97706;
+      border-color: #d97706;
+    }
+    .flatpickr-months .flatpickr-prev-month,
+    .flatpickr-months .flatpickr-next-month {
+      fill: #a1a1aa;
+    }
+    .flatpickr-months .flatpickr-prev-month:hover svg,
+    .flatpickr-months .flatpickr-next-month:hover svg {
+      fill: #f59e0b;
+    }
+    .flatpickr-day.flatpickr-disabled,
+    .flatpickr-day.prevMonthDay,
+    .flatpickr-day.nextMonthDay {
+      color: #3f3f46;
+    }
+  </style>
 </head>
 <body>
   <div id="app">
@@ -185,6 +238,21 @@
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/es.js"></script>
   <script src="admin.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      flatpickr('#week_start', {
+        locale: 'es',
+        dateFormat: 'Y-m-d',
+        altInput: true,
+        altFormat: 'd / m / Y',
+        defaultDate: new Date(),
+        disableMobile: true,
+        theme: 'dark'
+      });
+    });
+  </script>
 </body>
 </html>

@@ -299,3 +299,12 @@ h1, h2, h3 { font-family: 'Oswald', sans-serif; }
 
 /* Format fields wrapper */
 .format-fields { display: flex; flex-direction: column; gap: 0.75rem; }
+
+/* Flatpickr alt input */
+.form-group input.flatpickr-input,
+.form-group input.flatpickr-alt-input {
+  cursor: pointer;
+}
+input.flatpickr-input[readonly] {
+  background: var(--bg);
+}
