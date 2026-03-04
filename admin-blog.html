@@ -78,10 +78,23 @@
               </div>
 
               <div class="form-group">
-                <label for="post-cover">Imagen de portada (URL)</label>
-                <input type="url" id="post-cover" placeholder="https://...">
-                <div id="cover-preview" class="cover-preview hidden">
-                  <img id="cover-preview-img" alt="Preview">
+                <label>Imagen de portada</label>
+                <input type="hidden" id="post-cover-url">
+                <div class="cover-upload-area" id="cover-upload-area">
+                  <div id="cover-preview" class="cover-preview hidden">
+                    <img id="cover-preview-img" alt="Preview">
+                    <button type="button" class="cover-remove-btn" id="btn-remove-cover" title="Eliminar imagen">✕</button>
+                  </div>
+                  <div id="cover-upload-placeholder" class="cover-upload-placeholder">
+                    <span class="cover-upload-icon">📷</span>
+                    <span>Haz clic o arrastra una imagen aquí</span>
+                    <small>JPG, PNG o WebP · Máx. 5 MB</small>
+                  </div>
+                  <input type="file" id="post-cover-file" accept="image/jpeg,image/png,image/webp" class="cover-file-input">
+                </div>
+                <div id="cover-uploading" class="cover-uploading hidden">
+                  <div class="upload-spinner"></div>
+                  <span>Subiendo imagen...</span>
                 </div>
               </div>
 

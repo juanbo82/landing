@@ -42,15 +42,21 @@ function initBlogAdmin() {
   const postTitleInput = document.getElementById('post-title');
   const postSlugInput = document.getElementById('post-slug');
   const postAuthorInput = document.getElementById('post-author');
-  const postCoverInput = document.getElementById('post-cover');
+  const postCoverUrlInput = document.getElementById('post-cover-url');
+  const postCoverFileInput = document.getElementById('post-cover-file');
   const postExcerptInput = document.getElementById('post-excerpt');
   const postContentInput = document.getElementById('post-content');
   const postPublishedInput = document.getElementById('post-published');
+  const coverUploadArea = document.getElementById('cover-upload-area');
+  const coverUploadPlaceholder = document.getElementById('cover-upload-placeholder');
   const coverPreview = document.getElementById('cover-preview');
   const coverPreviewImg = document.getElementById('cover-preview-img');
+  const coverUploading = document.getElementById('cover-uploading');
+  const btnRemoveCover = document.getElementById('btn-remove-cover');
   const formError = document.getElementById('form-error');
   const formSuccess = document.getElementById('form-success');
 
+  const BLOG_IMAGES_BUCKET = 'blog-images';
   let editingPostId = null;
 
   // ========================
@@ -129,19 +135,20 @@ function initBlogAdmin() {
       postTitleInput.value = post.title || '';
       postSlugInput.value = post.slug || '';
       postAuthorInput.value = post.author_name || 'StreetWOD';
-      postCoverInput.value = post.cover_image_url || '';
+      postCoverUrlInput.value = post.cover_image_url || '';
       postExcerptInput.value = post.excerpt || '';
       postContentInput.value = post.content || '';
       postPublishedInput.checked = post.is_published;
       btnDeletePost.style.display = 'block';
-      updateCoverPreview();
+      showCoverState();
     } else {
       editingPostId = null;
       editorTitle.textContent = 'Nuevo artículo';
       postForm.reset();
       postAuthorInput.value = 'StreetWOD';
+      postCoverUrlInput.value = '';
       btnDeletePost.style.display = 'none';
-      coverPreview.classList.add('hidden');
+      showCoverState();
     }
   }
 
@@ -227,21 +234,76 @@ function initBlogAdmin() {
   });
 
   // ========================
-  // Cover preview
+  // Cover image upload
   // ========================
-  function updateCoverPreview() {
-    const url = postCoverInput.value.trim();
+  function showCoverState() {
+    const url = postCoverUrlInput.value;
     if (url) {
       coverPreviewImg.src = url;
       coverPreview.classList.remove('hidden');
+      coverUploadPlaceholder.classList.add('hidden');
     } else {
       coverPreview.classList.add('hidden');
+      coverUploadPlaceholder.classList.remove('hidden');
     }
+    coverUploading.classList.add('hidden');
   }
 
-  postCoverInput.addEventListener('input', updateCoverPreview);
-  coverPreviewImg.addEventListener('error', () => {
+  async function uploadCoverImage(file) {
+    if (!file) return;
+    if (file.size > 5 * 1024 * 1024) {
+      formError.textContent = 'La imagen no puede superar 5 MB.';
+      return;
+    }
+
+    coverUploading.classList.remove('hidden');
+    coverUploadPlaceholder.classList.add('hidden');
     coverPreview.classList.add('hidden');
+    formError.textContent = '';
+
+    const ext = file.name.split('.').pop().toLowerCase();
+    const fileName = `covers/${Date.now()}_${Math.random().toString(36).slice(2, 8)}.${ext}`;
+
+    const { error } = await db.storage.from(BLOG_IMAGES_BUCKET).upload(fileName, file, {
+      cacheControl: '3600',
+      upsert: false,
+    });
+
+    if (error) {
+      formError.textContent = 'Error al subir imagen: ' + error.message;
+      showCoverState();
+      return;
+    }
+
+    const { data: urlData } = db.storage.from(BLOG_IMAGES_BUCKET).getPublicUrl(fileName);
+    postCoverUrlInput.value = urlData.publicUrl;
+    showCoverState();
+  }
+
+  postCoverFileInput.addEventListener('change', (e) => {
+    const file = e.target.files[0];
+    if (file) uploadCoverImage(file);
+    postCoverFileInput.value = '';
+  });
+
+  coverUploadArea.addEventListener('dragover', (e) => {
+    e.preventDefault();
+    coverUploadArea.classList.add('drag-over');
+  });
+  coverUploadArea.addEventListener('dragleave', () => {
+    coverUploadArea.classList.remove('drag-over');
+  });
+  coverUploadArea.addEventListener('drop', (e) => {
+    e.preventDefault();
+    coverUploadArea.classList.remove('drag-over');
+    const file = e.dataTransfer.files[0];
+    if (file && file.type.startsWith('image/')) uploadCoverImage(file);
+  });
+
+  btnRemoveCover.addEventListener('click', (e) => {
+    e.stopPropagation();
+    postCoverUrlInput.value = '';
+    showCoverState();
   });
 
   // ========================
@@ -255,7 +317,7 @@ function initBlogAdmin() {
     const title = postTitleInput.value.trim();
     const slug = postSlugInput.value.trim();
     const author = postAuthorInput.value.trim() || 'StreetWOD';
-    const cover = postCoverInput.value.trim() || null;
+    const cover = postCoverUrlInput.value.trim() || null;
     const excerpt = postExcerptInput.value.trim() || null;
     const content = postContentInput.value.trim();
     const isPublished = postPublishedInput.checked;
