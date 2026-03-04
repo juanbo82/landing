@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { supabase } from '@/lib/supabase';
 
 async function getStats() {
@@ -9,6 +10,14 @@ async function getStats() {
   return { athletes: athletes ?? 0, wods: wods ?? 0 };
 }
 
+function PhoneMockup({ src, alt, className = '' }: { src: string; alt: string; className?: string }) {
+  return (
+    <div className={`phone-mockup w-[260px] lg:w-[280px] ${className}`}>
+      <Image src={src} alt={alt} width={280} height={560} className="w-full rounded-3xl" />
+    </div>
+  );
+}
+
 export default async function HomePage() {
   const stats = await getStats();
 
@@ -16,7 +25,6 @@ export default async function HomePage() {
     <>
       {/* HERO */}
       <header className="relative min-h-[90vh] flex items-center justify-center px-5 py-20 overflow-hidden">
-        {/* Glow background */}
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
@@ -25,7 +33,7 @@ export default async function HomePage() {
           }}
         />
 
-        <div className="relative z-10 max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-12">
+        <div className="relative z-10 max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
           <div className="flex-1 max-w-xl text-center lg:text-left">
             <p className="font-oswald text-xs font-semibold tracking-[0.2em] text-accent mb-4">
               LA COMUNIDAD QUE TE HACE MEJOR ATLETA
@@ -57,7 +65,6 @@ export default async function HomePage() {
               </Link>
             </div>
 
-            {/* Live stats */}
             <div className="inline-flex items-center gap-6 bg-surface border border-border rounded-lg px-6 py-4">
               <div className="text-center">
                 <span className="block font-oswald text-2xl font-bold text-accent">
@@ -78,6 +85,11 @@ export default async function HomePage() {
                 <span className="text-[10px] text-text-tertiary tracking-widest uppercase">Timers</span>
               </div>
             </div>
+          </div>
+
+          {/* Phone mockup */}
+          <div className="hidden lg:block flex-shrink-0">
+            <PhoneMockup src="/screen-home.png" alt="StreetWOD App" className="animate-float" />
           </div>
         </div>
       </header>
@@ -138,72 +150,81 @@ export default async function HomePage() {
       {/* COMMUNITY */}
       <section className="py-16 px-5">
         <div className="max-w-6xl mx-auto">
-          <span className="inline-block font-oswald text-[10px] font-semibold tracking-[0.2em] text-accent bg-accent-15 px-2.5 py-1 rounded mb-4">
-            COMUNIDAD
-          </span>
-          <h2 className="font-oswald text-3xl md:text-4xl font-bold uppercase mb-3">
-            No entrenes solo.<br />Entrena con propósito.
-          </h2>
-          <p className="text-text-secondary max-w-xl mb-10">
-            StreetWOD es más que un cronómetro. Es una red de atletas que compiten, se retan y se superan juntos.
-          </p>
-
-          <div className="grid md:grid-cols-3 gap-5">
-            <div className="bg-surface border border-accent-30 rounded-lg p-6 bg-gradient-to-br from-accent-15 to-surface">
-              <div className="text-3xl mb-3">⚔️</div>
-              <h3 className="font-oswald text-lg font-semibold tracking-wide mb-2">Duelos 1vs1</h3>
-              <p className="text-sm text-text-secondary mb-4">
-                Reta a cualquier atleta a completar el mismo WOD. Compara tiempos, confirma resultados y acumula victorias.
+          <div className="grid lg:grid-cols-[1fr_auto] gap-12 items-center">
+            <div>
+              <span className="inline-block font-oswald text-[10px] font-semibold tracking-[0.2em] text-accent bg-accent-15 px-2.5 py-1 rounded mb-4">
+                COMUNIDAD
+              </span>
+              <h2 className="font-oswald text-3xl md:text-4xl font-bold uppercase mb-3">
+                No entrenes solo.<br />Entrena con propósito.
+              </h2>
+              <p className="text-text-secondary max-w-xl mb-10">
+                StreetWOD es más que un cronómetro. Es una red de atletas que compiten, se retan y se superan juntos.
               </p>
-              <ul className="space-y-1.5">
-                <li className="text-xs text-text-tertiary flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-accent" /> Elige el WOD del duelo
-                </li>
-                <li className="text-xs text-text-tertiary flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-accent" /> Registra y confirma resultados
-                </li>
-                <li className="text-xs text-text-tertiary flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-accent" /> Historial y estadísticas VS
-                </li>
-              </ul>
+
+              <div className="grid sm:grid-cols-3 gap-5">
+                <div className="bg-surface border border-accent-30 rounded-lg p-6 bg-gradient-to-br from-accent-15 to-surface">
+                  <div className="text-3xl mb-3">⚔️</div>
+                  <h3 className="font-oswald text-lg font-semibold tracking-wide mb-2">Duelos 1vs1</h3>
+                  <p className="text-sm text-text-secondary mb-4">
+                    Reta a cualquier atleta a completar el mismo WOD. Compara tiempos y acumula victorias.
+                  </p>
+                  <ul className="space-y-1.5">
+                    <li className="text-xs text-text-tertiary flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-accent" /> Elige el WOD del duelo
+                    </li>
+                    <li className="text-xs text-text-tertiary flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-accent" /> Registra y confirma resultados
+                    </li>
+                    <li className="text-xs text-text-tertiary flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-accent" /> Historial y estadísticas VS
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="bg-surface border border-border rounded-lg p-6">
+                  <div className="text-3xl mb-3">🏆</div>
+                  <h3 className="font-oswald text-lg font-semibold tracking-wide mb-2">Rankings mundiales</h3>
+                  <p className="text-sm text-text-secondary mb-4">
+                    Registra tus RMs con vídeo y compite en clasificaciones globales.
+                  </p>
+                  <ul className="space-y-1.5">
+                    <li className="text-xs text-text-tertiary flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-accent" /> 17 ejercicios de halterofilia
+                    </li>
+                    <li className="text-xs text-text-tertiary flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-accent" /> Verificación por vídeo
+                    </li>
+                    <li className="text-xs text-text-tertiary flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-accent" /> Percentil y comparativa
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="bg-surface border border-border rounded-lg p-6">
+                  <div className="text-3xl mb-3">👥</div>
+                  <h3 className="font-oswald text-lg font-semibold tracking-wide mb-2">Sigue atletas</h3>
+                  <p className="text-sm text-text-secondary mb-4">
+                    Feed de actividad en tiempo real: WODs completados, duelos ganados, nuevos RMs.
+                  </p>
+                  <ul className="space-y-1.5">
+                    <li className="text-xs text-text-tertiary flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-accent" /> Feed personalizado
+                    </li>
+                    <li className="text-xs text-text-tertiary flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-accent" /> Chat entre seguidores mutuos
+                    </li>
+                    <li className="text-xs text-text-tertiary flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-accent" /> Perfiles con box y país
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </div>
 
-            <div className="bg-surface border border-border rounded-lg p-6">
-              <div className="text-3xl mb-3">🏆</div>
-              <h3 className="font-oswald text-lg font-semibold tracking-wide mb-2">Rankings mundiales</h3>
-              <p className="text-sm text-text-secondary mb-4">
-                Registra tus RMs con vídeo y compite en clasificaciones globales.
-              </p>
-              <ul className="space-y-1.5">
-                <li className="text-xs text-text-tertiary flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-accent" /> 17 ejercicios de halterofilia
-                </li>
-                <li className="text-xs text-text-tertiary flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-accent" /> Verificación por vídeo
-                </li>
-                <li className="text-xs text-text-tertiary flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-accent" /> Percentil y comparativa
-                </li>
-              </ul>
-            </div>
-
-            <div className="bg-surface border border-border rounded-lg p-6">
-              <div className="text-3xl mb-3">👥</div>
-              <h3 className="font-oswald text-lg font-semibold tracking-wide mb-2">Sigue atletas</h3>
-              <p className="text-sm text-text-secondary mb-4">
-                Feed de actividad en tiempo real: WODs completados, duelos ganados, nuevos RMs.
-              </p>
-              <ul className="space-y-1.5">
-                <li className="text-xs text-text-tertiary flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-accent" /> Feed personalizado
-                </li>
-                <li className="text-xs text-text-tertiary flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-accent" /> Chat entre seguidores mutuos
-                </li>
-                <li className="text-xs text-text-tertiary flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-accent" /> Perfiles con box y país
-                </li>
-              </ul>
+            {/* Phone mockup - Duels */}
+            <div className="hidden lg:block flex-shrink-0">
+              <PhoneMockup src="/screen-duels.png" alt="Estadísticas de Duelos" className="animate-float-delay" />
             </div>
           </div>
         </div>
@@ -262,36 +283,70 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* TIMERS */}
+      {/* PROGRESS + TIMERS */}
       <section className="py-16 px-5">
-        <div className="max-w-6xl mx-auto text-center">
-          <span className="inline-block font-oswald text-[10px] font-semibold tracking-[0.2em] text-accent bg-accent-15 px-2.5 py-1 rounded mb-4">
-            CRONÓMETROS
-          </span>
-          <h2 className="font-oswald text-3xl md:text-4xl font-bold uppercase mb-3">
-            6 timers profesionales
-          </h2>
-          <p className="text-text-secondary max-w-lg mx-auto mb-10">
-            Diseñados para CrossFit: sonidos, cuenta atrás, pantalla siempre encendida y barra de progreso visual.
-          </p>
+        <div className="max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-[auto_1fr] gap-12 items-center">
+            {/* Phone mockup - Evolution */}
+            <div className="hidden lg:flex justify-center flex-shrink-0">
+              <PhoneMockup src="/screen-evolution.png" alt="Evolución de PRs" className="animate-float" />
+            </div>
 
-          <div className="flex flex-wrap gap-3 justify-center">
-            {[
-              { label: 'EMOM', color: 'bg-sw-blue' },
-              { label: 'AMRAP', color: 'bg-sw-green' },
-              { label: 'For Time', color: 'bg-sw-red' },
-              { label: 'Tabata', color: 'bg-accent' },
-              { label: 'Countdown', color: 'bg-sw-purple' },
-              { label: 'Custom', color: 'bg-text-tertiary' },
-            ].map((t) => (
-              <div
-                key={t.label}
-                className="flex items-center gap-2 font-oswald text-sm font-semibold tracking-wider px-4 py-3 bg-surface border border-border rounded-lg"
-              >
-                <span className={`w-2 h-2 rounded-full ${t.color}`} />
-                {t.label}
+            <div>
+              <span className="inline-block font-oswald text-[10px] font-semibold tracking-[0.2em] text-accent bg-accent-15 px-2.5 py-1 rounded mb-4">
+                PROGRESO
+              </span>
+              <h2 className="font-oswald text-3xl md:text-4xl font-bold uppercase mb-8">
+                Mide tu evolución,<br />semana a semana
+              </h2>
+
+              <div className="grid sm:grid-cols-3 gap-4 mb-12">
+                <div className="bg-surface border border-border rounded-lg p-5">
+                  <div className="text-2xl mb-2">📅</div>
+                  <h3 className="font-oswald font-semibold tracking-wide mb-1">WOD semanal</h3>
+                  <p className="text-sm text-text-secondary">Cada semana un nuevo WOD para toda la comunidad. Compárate y acumula rachas.</p>
+                </div>
+                <div className="bg-surface border border-border rounded-lg p-5">
+                  <div className="text-2xl mb-2">📈</div>
+                  <h3 className="font-oswald font-semibold tracking-wide mb-1">Evolución de RMs</h3>
+                  <p className="text-sm text-text-secondary">Gráficas de progreso, percentil global y comparativa con la media de atletas.</p>
+                </div>
+                <div className="bg-surface border border-border rounded-lg p-5">
+                  <div className="text-2xl mb-2">🎖️</div>
+                  <h3 className="font-oswald font-semibold tracking-wide mb-1">Logros y stats</h3>
+                  <p className="text-sm text-text-secondary">WODs completados, racha actual, mejor racha, tasa RX y badges.</p>
+                </div>
               </div>
-            ))}
+
+              <span className="inline-block font-oswald text-[10px] font-semibold tracking-[0.2em] text-accent bg-accent-15 px-2.5 py-1 rounded mb-4">
+                CRONÓMETROS
+              </span>
+              <h2 className="font-oswald text-2xl font-bold uppercase mb-4">
+                6 timers profesionales
+              </h2>
+              <p className="text-text-secondary max-w-lg mb-6">
+                Diseñados para CrossFit: sonidos, cuenta atrás, pantalla siempre encendida y barra de progreso visual.
+              </p>
+
+              <div className="flex flex-wrap gap-3">
+                {[
+                  { label: 'EMOM', color: 'bg-sw-blue' },
+                  { label: 'AMRAP', color: 'bg-sw-green' },
+                  { label: 'For Time', color: 'bg-sw-red' },
+                  { label: 'Tabata', color: 'bg-accent' },
+                  { label: 'Countdown', color: 'bg-sw-purple' },
+                  { label: 'Custom', color: 'bg-text-tertiary' },
+                ].map((t) => (
+                  <div
+                    key={t.label}
+                    className="flex items-center gap-2 font-oswald text-sm font-semibold tracking-wider px-4 py-3 bg-surface border border-border rounded-lg"
+                  >
+                    <span className={`w-2 h-2 rounded-full ${t.color}`} />
+                    {t.label}
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
