@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin — StreetWOD · Blog</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin.css">
+  <link rel="stylesheet" href="admin-blog.css">
+</head>
+<body>
+  <div id="app">
+    <!-- LOGIN -->
+    <div id="login-screen" class="screen">
+      <div class="login-card">
+        <img src="logo.png" alt="StreetWOD" class="login-logo">
+        <h1>Admin Blog</h1>
+        <p class="login-desc">Gestiona los artículos del blog StreetWOD</p>
+        <form id="login-form" class="login-form">
+          <input type="email" id="login-email" placeholder="Email" required autocomplete="email">
+          <input type="password" id="login-password" placeholder="Contraseña" required autocomplete="current-password">
+          <button type="submit" class="btn btn-primary" id="login-btn">Iniciar sesión</button>
+          <p id="login-error" class="error-msg"></p>
+        </form>
+      </div>
+    </div>
+
+    <!-- PANEL -->
+    <div id="panel-screen" class="screen hidden">
+      <nav class="admin-nav">
+        <a href="index.html" class="back-link">← Volver</a>
+        <div class="admin-nav-tabs">
+          <a href="admin.html" class="nav-tab">WODs</a>
+          <a href="admin-blog.html" class="nav-tab active">Blog</a>
+        </div>
+        <span class="admin-user" id="admin-email"></span>
+        <button type="button" class="btn btn-ghost btn-sm" id="logout-btn">Cerrar sesión</button>
+      </nav>
+      <main class="admin-main">
+        <div id="no-auth-msg" class="no-auth hidden">
+          <p>No tienes permisos de administrador.</p>
+        </div>
+        <div id="admin-content" class="hidden">
+
+          <!-- Vista: Lista de posts -->
+          <div id="view-list">
+            <div class="blog-header">
+              <h2>Artículos del Blog</h2>
+              <button type="button" class="btn btn-primary" id="btn-new-post">+ Nuevo artículo</button>
+            </div>
+            <div id="posts-list" class="posts-list"></div>
+          </div>
+
+          <!-- Vista: Editor de post -->
+          <div id="view-editor" class="hidden">
+            <div class="editor-header">
+              <button type="button" class="btn btn-ghost" id="btn-back-list">← Volver a la lista</button>
+              <h2 id="editor-title">Nuevo artículo</h2>
+            </div>
+            <form id="post-form" class="post-form" autocomplete="off">
+              <div class="form-row">
+                <div class="form-group" style="flex:2">
+                  <label for="post-title">Título</label>
+                  <input type="text" id="post-title" placeholder="Título del artículo..." required maxlength="200">
+                </div>
+                <div class="form-group" style="flex:1">
+                  <label for="post-author">Autor</label>
+                  <input type="text" id="post-author" placeholder="StreetWOD" value="StreetWOD" maxlength="100">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="post-slug">Slug (URL)</label>
+                <input type="text" id="post-slug" placeholder="mi-articulo-genial" required>
+                <small>Se genera automáticamente del título. Solo letras, números y guiones.</small>
+              </div>
+
+              <div class="form-group">
+                <label for="post-cover">Imagen de portada (URL)</label>
+                <input type="url" id="post-cover" placeholder="https://...">
+                <div id="cover-preview" class="cover-preview hidden">
+                  <img id="cover-preview-img" alt="Preview">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="post-excerpt">Extracto</label>
+                <textarea id="post-excerpt" rows="2" placeholder="Resumen breve del artículo..." maxlength="500"></textarea>
+              </div>
+
+              <div class="form-group">
+                <label for="post-content">Contenido</label>
+                <textarea id="post-content" rows="16" placeholder="Escribe el artículo aquí...&#10;&#10;Soporta formato básico:&#10;# Título&#10;## Subtítulo&#10;**negrita**&#10;*cursiva*&#10;- listas&#10;> citas&#10;![alt](url-imagen)" required></textarea>
+                <small>Formato Markdown básico soportado: títulos (#, ##, ###), negrita (**texto**), cursiva (*texto*), listas (- item), citas (> texto), imágenes (![alt](url))</small>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="checkbox-label">
+                    <input type="checkbox" id="post-published">
+                    <span>Publicado</span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="form-actions">
+                <button type="submit" class="btn btn-primary btn-lg" id="btn-save-post">Guardar artículo</button>
+                <button type="button" class="btn btn-danger-outline" id="btn-delete-post" style="display:none">Eliminar</button>
+              </div>
+              <p id="form-error" class="error-msg"></p>
+              <p id="form-success" class="success-msg"></p>
+            </form>
+          </div>
+
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="admin-blog.js"></script>
+</body>
+</html>

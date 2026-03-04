@@ -321,6 +321,15 @@ img { max-width: 100%; display: block; }
 }
 .footer-logo { height: 20px; filter: invert(1); opacity: .5; }
 .footer p { font-size: 0.8rem; color: var(--text-3); }
+.footer-links {
+  margin-left: auto;
+  display: flex; gap: 1.5rem;
+}
+.footer-links a {
+  color: var(--text-3); font-size: 0.8rem;
+  text-decoration: none; transition: color .2s;
+}
+.footer-links a:hover { color: var(--text-2); }
 
 /* ---- PHONE MOCKUP ---- */
 .phone-mockup {
@@ -451,6 +460,7 @@ img { max-width: 100%; display: block; }
   .formats-showcase { justify-content: flex-start; }
   .timers-row { justify-content: flex-start; }
   .footer-inner { flex-direction: column; text-align: center; }
+  .footer-links { margin-left: 0; justify-content: center; }
   .phone-mockup { width: 200px; }
   .phone-mockup-lg { width: 220px; }
   .phone-group { gap: 1rem; }
@@ -469,6 +479,7 @@ html[dir="rtl"] .card-list li { padding-left: 0; padding-right: 1rem; }
 html[dir="rtl"] .card-list li::before { left: auto; right: 0; }
 html[dir="rtl"] .feature-item { flex-direction: row-reverse; }
 html[dir="rtl"] .footer-inner { flex-direction: row-reverse; }
+html[dir="rtl"] .footer-links { margin-left: 0; margin-right: auto; }
 html[dir="rtl"] .section-inner,
 html[dir="rtl"] .cta-inner { text-align: right; }
 html[dir="rtl"] .section-desc,

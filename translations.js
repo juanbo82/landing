@@ -72,6 +72,8 @@ const TRANSLATIONS = {
     ctaDesc: "StreetWOD ya está disponible en Google Play. Duelos, rankings, WODs compartidos y mucho más.",
     ctaBadge: "Disponible en Google Play",
     footerTagline: "Find the limits.",
+    footerPrivacy: "Política de Privacidad",
+    footerTerms: "Condiciones del Servicio",
     langLabel: "Idioma",
   },
   en: {
@@ -143,6 +145,8 @@ const TRANSLATIONS = {
     ctaDesc: "StreetWOD is now available on Google Play. Duels, rankings, shared WODs and more.",
     ctaBadge: "Available on Google Play",
     footerTagline: "Find the limits.",
+    footerPrivacy: "Privacy Policy",
+    footerTerms: "Terms of Service",
     langLabel: "Language",
   },
   fr: {
@@ -214,6 +218,8 @@ const TRANSLATIONS = {
     ctaDesc: "StreetWOD est disponible sur Google Play. Duels, classements, WODs partagés et plus.",
     ctaBadge: "Disponible sur Google Play",
     footerTagline: "Find the limits.",
+    footerPrivacy: "Politique de Confidentialité",
+    footerTerms: "Conditions d'Utilisation",
     langLabel: "Langue",
   },
   pt: {
@@ -285,6 +291,8 @@ const TRANSLATIONS = {
     ctaDesc: "StreetWOD já está disponível no Google Play. Duelos, rankings, WODs partilhados e muito mais.",
     ctaBadge: "Disponível no Google Play",
     footerTagline: "Find the limits.",
+    footerPrivacy: "Política de Privacidade",
+    footerTerms: "Termos de Serviço",
     langLabel: "Idioma",
   },
   de: {
@@ -356,6 +364,8 @@ const TRANSLATIONS = {
     ctaDesc: "StreetWOD ist jetzt bei Google Play verfügbar. Duelle, Rankings, geteilte WODs und mehr.",
     ctaBadge: "Verfügbar bei Google Play",
     footerTagline: "Find the limits.",
+    footerPrivacy: "Datenschutzrichtlinie",
+    footerTerms: "Nutzungsbedingungen",
     langLabel: "Sprache",
   },
   ar: {
@@ -427,6 +437,8 @@ const TRANSLATIONS = {
     ctaDesc: "StreetWOD متاح الآن على Google Play. مبارزات، تصنيفات، WODs مشاركة وأكثر.",
     ctaBadge: "متاح على Google Play",
     footerTagline: "Find the limits.",
+    footerPrivacy: "سياسة الخصوصية",
+    footerTerms: "شروط الخدمة",
     langLabel: "اللغة",
   },
   zh: {
@@ -498,6 +510,8 @@ const TRANSLATIONS = {
     ctaDesc: "StreetWOD已在Google Play上线。对战、排名、共享WOD等。",
     ctaBadge: "在Google Play下载",
     footerTagline: "Find the limits.",
+    footerPrivacy: "隐私政策",
+    footerTerms: "服务条款",
     langLabel: "语言",
   },
   it: {
@@ -569,6 +583,8 @@ const TRANSLATIONS = {
     ctaDesc: "StreetWOD è ora disponibile su Google Play. Duelli, classifiche, WOD condivisi e altro ancora.",
     ctaBadge: "Disponibile su Google Play",
     footerTagline: "Find the limits.",
+    footerPrivacy: "Informativa sulla Privacy",
+    footerTerms: "Termini di Servizio",
     langLabel: "Lingua",
   },
   nl: {
@@ -640,6 +656,8 @@ const TRANSLATIONS = {
     ctaDesc: "StreetWOD is nu beschikbaar op Google Play. Duelen, rankings, gedeelde WODs en meer.",
     ctaBadge: "Beschikbaar op Google Play",
     footerTagline: "Find the limits.",
+    footerPrivacy: "Privacybeleid",
+    footerTerms: "Servicevoorwaarden",
     langLabel: "Taal",
   },
   pl: {
@@ -711,6 +729,8 @@ const TRANSLATIONS = {
     ctaDesc: "StreetWOD jest już dostępny w Google Play. Pojedynki, rankingi, współdzielone WOD i więcej.",
     ctaBadge: "Dostępny w Google Play",
     footerTagline: "Find the limits.",
+    footerPrivacy: "Polityka Prywatności",
+    footerTerms: "Regulamin",
     langLabel: "Język",
   },
   tr: {
@@ -782,6 +802,8 @@ const TRANSLATIONS = {
     ctaDesc: "StreetWOD artık Google Play'de mevcut. Düellolar, sıralamalar, paylaşılan WOD'lar ve daha fazlası.",
     ctaBadge: "Google Play'de Mevcut",
     footerTagline: "Find the limits.",
+    footerPrivacy: "Gizlilik Politikası",
+    footerTerms: "Hizmet Şartları",
     langLabel: "Dil",
   },
 };
