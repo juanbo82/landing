@@ -230,8 +230,84 @@ export default async function HomePage() {
         </div>
       </section>
 
+      {/* AI TECHNIQUE ANALYSIS */}
+      <section className="py-16 px-5 bg-bg-alt relative overflow-hidden">
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background:
+              'radial-gradient(ellipse 60% 50% at 70% 50%, rgba(245,158,11,0.08), transparent 70%)',
+          }}
+        />
+        <div className="max-w-6xl mx-auto relative z-10">
+          <div className="grid lg:grid-cols-[1fr_auto] gap-12 items-center">
+            <div>
+              <span className="inline-block font-oswald text-[10px] font-semibold tracking-[0.2em] text-accent bg-accent-15 px-2.5 py-1 rounded mb-4">
+                INTELIGENCIA ARTIFICIAL
+              </span>
+              <h2 className="font-oswald text-3xl md:text-4xl font-bold uppercase mb-3">
+                Tu coach de IA<br />analiza cada repetición
+              </h2>
+              <p className="text-text-secondary max-w-xl mb-8">
+                Graba tus levantamientos al registrar un RM y nuestra IA analiza tu técnica en segundos.
+                Recibe una puntuación detallada por cada fase del movimiento, identifica debilidades y
+                obtén drills específicos para mejorar.
+              </p>
+
+              <div className="grid sm:grid-cols-2 gap-4 mb-8">
+                <div className="flex items-start gap-3">
+                  <span className="text-2xl">🎯</span>
+                  <div>
+                    <strong className="block text-sm mb-0.5">Puntuación por fases</strong>
+                    <p className="text-sm text-text-secondary">Setup, tracción, recepción, recovery... cada fase evaluada de 0 a 10.</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-2xl">⚡</span>
+                  <div>
+                    <strong className="block text-sm mb-0.5">Feedback instantáneo</strong>
+                    <p className="text-sm text-text-secondary">Fortalezas, debilidades y recomendaciones concretas en segundos.</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-2xl">📊</span>
+                  <div>
+                    <strong className="block text-sm mb-0.5">Historial de progreso</strong>
+                    <p className="text-sm text-text-secondary">Compara tus análisis a lo largo del tiempo y mide tu evolución técnica.</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-2xl">🏋️</span>
+                  <div>
+                    <strong className="block text-sm mb-0.5">17 ejercicios soportados</strong>
+                    <p className="text-sm text-text-secondary">Squat, clean, snatch, jerk, deadlift, press y todas sus variantes.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="inline-flex items-center gap-3 bg-surface border border-accent-30 rounded-lg px-5 py-3">
+                <span className="flex items-center justify-center w-8 h-8 rounded-full bg-accent-15">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-accent">
+                    <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                    <path d="M2 17l10 5 10-5" />
+                    <path d="M2 12l10 5 10-5" />
+                  </svg>
+                </span>
+                <span className="text-sm text-text-secondary">
+                  Powered by <strong className="text-accent">Gemini AI</strong> — análisis de vídeo con inteligencia artificial de Google
+                </span>
+              </div>
+            </div>
+
+            <div className="hidden lg:block flex-shrink-0">
+              <PhoneMockup src="/screen-ai-analysis.png" alt="Análisis de técnica con IA" className="animate-float-delay" />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* WOD BUILDER */}
-      <section className="py-16 px-5 bg-bg-alt">
+      <section className="py-16 px-5">
         <div className="max-w-6xl mx-auto">
           <span className="inline-block font-oswald text-[10px] font-semibold tracking-[0.2em] text-accent bg-accent-15 px-2.5 py-1 rounded mb-4">
             WOD BUILDER
