@@ -1,6 +1,9 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { supabase } from '@/lib/supabase';
+import AnimatedStats from '@/components/AnimatedStats';
+
+export const dynamic = 'force-dynamic';
 
 async function getStats() {
   const [{ count: athletes }, { count: wods }] = await Promise.all([
@@ -85,31 +88,14 @@ export default async function HomePage() {
               </Link>
             </div>
 
-            <div className="inline-flex items-center gap-6 bg-surface/80 backdrop-blur-sm border border-border rounded-lg px-6 py-4">
-              <div className="text-center">
-                <span className="block font-oswald text-2xl font-bold text-accent">
-                  {stats.athletes.toLocaleString()}
-                </span>
-                <span className="text-[10px] text-text-tertiary tracking-widest uppercase">Atletas</span>
-              </div>
-              <div className="w-px h-8 bg-border" />
-              <div className="text-center">
-                <span className="block font-oswald text-2xl font-bold text-accent">
-                  {stats.wods.toLocaleString()}
-                </span>
-                <span className="text-[10px] text-text-tertiary tracking-widest uppercase">WODs</span>
-              </div>
-              <div className="w-px h-8 bg-border" />
-              <div className="text-center">
-                <span className="block font-oswald text-2xl font-bold text-accent">17</span>
-                <span className="text-[10px] text-text-tertiary tracking-widest uppercase">Ejercicios IA</span>
-              </div>
-              <div className="w-px h-8 bg-border" />
-              <div className="text-center">
-                <span className="block font-oswald text-2xl font-bold text-accent">6</span>
-                <span className="text-[10px] text-text-tertiary tracking-widest uppercase">Timers</span>
-              </div>
-            </div>
+            <AnimatedStats
+              stats={[
+                { value: stats.athletes, label: 'Atletas' },
+                { value: stats.wods, label: 'WODs' },
+                { value: 17, label: 'Ejercicios IA' },
+                { value: 6, label: 'Timers' },
+              ]}
+            />
           </div>
 
           <div className="hidden lg:block flex-shrink-0">
