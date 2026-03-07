@@ -5,11 +5,11 @@ import './globals.css';
 
 export const metadata: Metadata = {
   title: {
-    default: 'StreetWOD — Comunidad CrossFit · Rankings · WODs · Duelos',
+    default: 'StreetWOD — La App de Cross Training con IA Avanzada · Rankings · WODs · Duelos',
     template: '%s | StreetWOD',
   },
   description:
-    'StreetWOD: la comunidad para atletas de CrossFit. Rankings mundiales, WODs, benchmarks, duelos 1vs1 y mucho más.',
+    'StreetWOD: la app más completa de cross training con IA avanzada. Analiza tu técnica con Gemini AI, compite en rankings mundiales, duelos 1vs1, WODs compartidos y mucho más.',
   metadataBase: new URL('https://streetwod.vercel.app'),
   openGraph: {
     siteName: 'StreetWOD',

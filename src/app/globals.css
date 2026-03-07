@@ -67,6 +67,36 @@ h1, h2, h3, h4 {
   display: block;
 }
 
+@keyframes aiPulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+@keyframes aiGlow {
+  0%, 100% { text-shadow: 0 0 20px rgba(245,158,11,0.3); }
+  50% { text-shadow: 0 0 40px rgba(245,158,11,0.5), 0 0 80px rgba(245,158,11,0.15); }
+}
+
+.ai-glow-text {
+  animation: aiGlow 3s ease-in-out infinite;
+}
+
+.ai-feature-card {
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ai-feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(245,158,11,0.08);
+}
+
+.ai-grid-bg {
+  background-image:
+    linear-gradient(rgba(245,158,11,0.15) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(245,158,11,0.15) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
