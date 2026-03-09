@@ -15,6 +15,9 @@ export default function Footer() {
           <Link href="/terms" className="text-sm text-text-tertiary hover:text-text-secondary transition-colors">
             Condiciones del Servicio
           </Link>
+          <Link href="/delete-account" className="text-sm text-text-tertiary hover:text-text-secondary transition-colors">
+            Eliminar cuenta
+          </Link>
         </div>
       </div>
     </footer>
